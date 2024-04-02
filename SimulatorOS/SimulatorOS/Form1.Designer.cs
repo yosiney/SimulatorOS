@@ -38,20 +38,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.NumProceso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ciclos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TiempoProcesos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RestanteCiclo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoProceso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonIniciarSimulacion = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.NumProcesoFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CiclosFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tiempo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TiempoFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxProcesoEjecucion = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,11 +54,16 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.NumProceso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ciclos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TiempoProcesos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RestanteCiclo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoProceso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TiempoFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -182,48 +176,14 @@
             this.Ciclos,
             this.TiempoProcesos,
             this.RestanteCiclo,
-            this.EstadoProceso});
+            this.EstadoProceso,
+            this.TiempoFinal});
             this.dataGridView1.Location = new System.Drawing.Point(25, 69);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(617, 150);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // NumProceso
-            // 
-            this.NumProceso.HeaderText = "Proceso";
-            this.NumProceso.MinimumWidth = 6;
-            this.NumProceso.Name = "NumProceso";
-            this.NumProceso.ReadOnly = true;
-            // 
-            // Ciclos
-            // 
-            this.Ciclos.HeaderText = "Ciclos de tarea";
-            this.Ciclos.MinimumWidth = 6;
-            this.Ciclos.Name = "Ciclos";
-            this.Ciclos.ReadOnly = true;
-            // 
-            // TiempoProcesos
-            // 
-            this.TiempoProcesos.HeaderText = "Tiempo";
-            this.TiempoProcesos.MinimumWidth = 6;
-            this.TiempoProcesos.Name = "TiempoProcesos";
-            this.TiempoProcesos.ReadOnly = true;
-            // 
-            // RestanteCiclo
-            // 
-            this.RestanteCiclo.HeaderText = "Restante";
-            this.RestanteCiclo.MinimumWidth = 6;
-            this.RestanteCiclo.Name = "RestanteCiclo";
-            this.RestanteCiclo.ReadOnly = true;
-            // 
-            // EstadoProceso
-            // 
-            this.EstadoProceso.HeaderText = "Estado";
-            this.EstadoProceso.MinimumWidth = 6;
-            this.EstadoProceso.Name = "EstadoProceso";
-            this.EstadoProceso.ReadOnly = true;
             // 
             // label4
             // 
@@ -239,7 +199,6 @@
             // 
             this.groupBox3.Controls.Add(this.panel2);
             this.groupBox3.Controls.Add(this.panel1);
-            this.groupBox3.Controls.Add(this.dataGridView2);
             this.groupBox3.Controls.Add(this.buttonIniciarSimulacion);
             this.groupBox3.Location = new System.Drawing.Point(12, 273);
             this.groupBox3.Name = "groupBox3";
@@ -258,58 +217,6 @@
             this.buttonIniciarSimulacion.Text = "Iniciar";
             this.buttonIniciarSimulacion.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NumProcesoFinal,
-            this.CiclosFinal,
-            this.Tiempo2,
-            this.TiempoFinal,
-            this.EstadoFinal});
-            this.dataGridView2.Location = new System.Drawing.Point(33, 41);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(1110, 150);
-            this.dataGridView2.TabIndex = 8;
-            // 
-            // NumProcesoFinal
-            // 
-            this.NumProcesoFinal.HeaderText = "Proceso";
-            this.NumProcesoFinal.MinimumWidth = 6;
-            this.NumProcesoFinal.Name = "NumProcesoFinal";
-            this.NumProcesoFinal.ReadOnly = true;
-            // 
-            // CiclosFinal
-            // 
-            this.CiclosFinal.HeaderText = "Ciclo de tarea";
-            this.CiclosFinal.MinimumWidth = 6;
-            this.CiclosFinal.Name = "CiclosFinal";
-            this.CiclosFinal.ReadOnly = true;
-            // 
-            // Tiempo2
-            // 
-            this.Tiempo2.HeaderText = "Tiempo";
-            this.Tiempo2.MinimumWidth = 6;
-            this.Tiempo2.Name = "Tiempo2";
-            this.Tiempo2.ReadOnly = true;
-            // 
-            // TiempoFinal
-            // 
-            this.TiempoFinal.HeaderText = "Tiempo final";
-            this.TiempoFinal.MinimumWidth = 6;
-            this.TiempoFinal.Name = "TiempoFinal";
-            this.TiempoFinal.ReadOnly = true;
-            // 
-            // EstadoFinal
-            // 
-            this.EstadoFinal.HeaderText = "Estado";
-            this.EstadoFinal.MinimumWidth = 6;
-            this.EstadoFinal.Name = "EstadoFinal";
-            this.EstadoFinal.ReadOnly = true;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -324,6 +231,7 @@
             // 
             this.textBoxProcesoEjecucion.Location = new System.Drawing.Point(102, 81);
             this.textBoxProcesoEjecucion.Name = "textBoxProcesoEjecucion";
+            this.textBoxProcesoEjecucion.ReadOnly = true;
             this.textBoxProcesoEjecucion.Size = new System.Drawing.Size(88, 22);
             this.textBoxProcesoEjecucion.TabIndex = 7;
             // 
@@ -375,6 +283,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(102, 81);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(88, 22);
             this.textBox3.TabIndex = 7;
             // 
@@ -411,6 +320,7 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(302, 81);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(88, 22);
             this.textBox4.TabIndex = 10;
             // 
@@ -433,6 +343,48 @@
             this.label12.TabIndex = 11;
             this.label12.Text = "Total:";
             // 
+            // NumProceso
+            // 
+            this.NumProceso.HeaderText = "Proceso";
+            this.NumProceso.MinimumWidth = 6;
+            this.NumProceso.Name = "NumProceso";
+            this.NumProceso.ReadOnly = true;
+            // 
+            // Ciclos
+            // 
+            this.Ciclos.HeaderText = "Ciclos de tarea";
+            this.Ciclos.MinimumWidth = 6;
+            this.Ciclos.Name = "Ciclos";
+            this.Ciclos.ReadOnly = true;
+            // 
+            // TiempoProcesos
+            // 
+            this.TiempoProcesos.HeaderText = "Tiempo";
+            this.TiempoProcesos.MinimumWidth = 6;
+            this.TiempoProcesos.Name = "TiempoProcesos";
+            this.TiempoProcesos.ReadOnly = true;
+            // 
+            // RestanteCiclo
+            // 
+            this.RestanteCiclo.HeaderText = "Restante";
+            this.RestanteCiclo.MinimumWidth = 6;
+            this.RestanteCiclo.Name = "RestanteCiclo";
+            this.RestanteCiclo.ReadOnly = true;
+            // 
+            // EstadoProceso
+            // 
+            this.EstadoProceso.HeaderText = "Estado";
+            this.EstadoProceso.MinimumWidth = 6;
+            this.EstadoProceso.Name = "EstadoProceso";
+            this.EstadoProceso.ReadOnly = true;
+            // 
+            // TiempoFinal
+            // 
+            this.TiempoFinal.HeaderText = "Tiempo final";
+            this.TiempoFinal.MinimumWidth = 6;
+            this.TiempoFinal.Name = "TiempoFinal";
+            this.TiempoFinal.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -443,7 +395,7 @@
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Simulador de SO";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -451,7 +403,6 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -472,19 +423,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumProceso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ciclos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoProcesos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RestanteCiclo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoProceso;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumProcesoFinal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CiclosFinal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tiempo2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoFinal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoFinal;
         private System.Windows.Forms.Button buttonIniciarSimulacion;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxProcesoEjecucion;
@@ -499,6 +439,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumProceso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ciclos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoProcesos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RestanteCiclo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoProceso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TiempoFinal;
     }
 }
 
