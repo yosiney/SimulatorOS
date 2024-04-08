@@ -85,11 +85,13 @@ namespace SimulatorOS
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            int tiempoProcesoValue = gridProcesos.Rows.Count;
+
             if (comboBoxApps.SelectedIndex == 0)
             {
                 int index = gridProcesos.Rows.Add();
                 gridProcesos.Rows[index].Cells["NumProceso"].Value = "Google Chrome";
-                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = tiempoProcesoValue.ToString();
                 gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
                 gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
             }
@@ -97,7 +99,7 @@ namespace SimulatorOS
             {
                 int index = gridProcesos.Rows.Add();
                 gridProcesos.Rows[index].Cells["NumProceso"].Value = "Spotify";
-                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = tiempoProcesoValue.ToString();
                 gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
                 gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
             }
@@ -106,7 +108,7 @@ namespace SimulatorOS
             {
                 int index = gridProcesos.Rows.Add();
                 gridProcesos.Rows[index].Cells["NumProceso"].Value = "Microsoft Word";
-                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = tiempoProcesoValue.ToString();
                 gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
                 gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
             }
@@ -114,7 +116,7 @@ namespace SimulatorOS
             {
                 int index = gridProcesos.Rows.Add();
                 gridProcesos.Rows[index].Cells["NumProceso"].Value = "Adobe Photoshop";
-                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = tiempoProcesoValue.ToString();
                 gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
                 gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
             }
@@ -122,7 +124,7 @@ namespace SimulatorOS
             {
                 int index = gridProcesos.Rows.Add();
                 gridProcesos.Rows[index].Cells["NumProceso"].Value = "Visual Studio Code";
-                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = tiempoProcesoValue.ToString();
                 gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
                 gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
             }
@@ -130,7 +132,7 @@ namespace SimulatorOS
             {
                 int index = gridProcesos.Rows.Add();
                 gridProcesos.Rows[index].Cells["NumProceso"].Value = "Outlook";
-                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = tiempoProcesoValue.ToString(); ;
                 gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
                 gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
             }
@@ -138,7 +140,7 @@ namespace SimulatorOS
             {
                 int index = gridProcesos.Rows.Add();
                 gridProcesos.Rows[index].Cells["NumProceso"].Value = "Adobe Ilustrator";
-                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = tiempoProcesoValue.ToString();
                 gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
                 gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
             }
@@ -146,7 +148,7 @@ namespace SimulatorOS
             {
                 int index = gridProcesos.Rows.Add();
                 gridProcesos.Rows[index].Cells["NumProceso"].Value = "MySQL";
-                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = tiempoProcesoValue.ToString();
                 gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
                 gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
             }
@@ -155,7 +157,7 @@ namespace SimulatorOS
             {
                 int index = gridProcesos.Rows.Add();
                 gridProcesos.Rows[index].Cells["NumProceso"].Value = "Paint";
-                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = tiempoProcesoValue.ToString();
                 gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
                 gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
             }
@@ -163,10 +165,11 @@ namespace SimulatorOS
             {
                 int index = gridProcesos.Rows.Add();
                 gridProcesos.Rows[index].Cells["NumProceso"].Value = "Teams";
-                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = tiempoProcesoValue.ToString(); ;
                 gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
                 gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
             }
+
         }
     }
     
