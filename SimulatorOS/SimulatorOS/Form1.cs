@@ -16,6 +16,8 @@ namespace SimulatorOS
         public Form1()
         {
             InitializeComponent();
+
+
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -27,54 +29,44 @@ namespace SimulatorOS
         {
             if (comboBoxApps.SelectedIndex == 0)
             {
-                textBox1.Text = "20";
-                textBox2.Text = "10";
+                txtCiclos.Text = "10";
             }
             else if(comboBoxApps.SelectedIndex == 1)
             {
-                textBox1.Text = "15";
-                textBox2.Text = "8";
+                txtCiclos.Text = "8";
             }
             else if (comboBoxApps.SelectedIndex == 2)
             {
-                textBox1.Text = "25";
-                textBox2.Text = "12";
+                txtCiclos.Text = "12";
             }
             else if (comboBoxApps.SelectedIndex == 3)
             {
-                textBox1.Text = "30";
-                textBox2.Text = "15";
+                txtCiclos.Text = "15";
             }
             else if (comboBoxApps.SelectedIndex == 4)
             {
-                textBox1.Text = "35";
-                textBox2.Text = "18";
+                txtCiclos.Text = "18";
             }
             else if (comboBoxApps.SelectedIndex == 5)
             {
-                textBox1.Text = "22";
-                textBox2.Text = "11";
+                txtCiclos.Text = "11";
             }
             else if (comboBoxApps.SelectedIndex == 6)
             {
-                textBox1.Text = "25";
-                textBox2.Text = "12";
+                txtCiclos.Text = "12";
             }
             else if (comboBoxApps.SelectedIndex == 7)
             {
-                textBox1.Text = "28";
-                textBox2.Text = "14";
+                txtCiclos.Text = "14";
             }
 
             else if (comboBoxApps.SelectedIndex == 8)
             {
-                textBox1.Text = "40";
-                textBox2.Text = "20";
+                txtCiclos.Text = "20";
             }
             else if (comboBoxApps.SelectedIndex == 9)
             {
-                textBox1.Text = "32";
-                textBox2.Text = "16";
+                txtCiclos.Text = "16";
             }
         }
 
@@ -90,5 +82,92 @@ namespace SimulatorOS
         {
 
         }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            if (comboBoxApps.SelectedIndex == 0)
+            {
+                int index = gridProcesos.Rows.Add();
+                gridProcesos.Rows[index].Cells["NumProceso"].Value = "Google Chrome";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
+                gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
+            }
+            else if (comboBoxApps.SelectedIndex == 1)
+            {
+                int index = gridProcesos.Rows.Add();
+                gridProcesos.Rows[index].Cells["NumProceso"].Value = "Spotify";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
+                gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
+            }
+
+            else if (comboBoxApps.SelectedIndex == 2)
+            {
+                int index = gridProcesos.Rows.Add();
+                gridProcesos.Rows[index].Cells["NumProceso"].Value = "Microsoft Word";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
+                gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
+            }
+            else if (comboBoxApps.SelectedIndex == 3)
+            {
+                int index = gridProcesos.Rows.Add();
+                gridProcesos.Rows[index].Cells["NumProceso"].Value = "Adobe Photoshop";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
+                gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
+            }
+            else if (comboBoxApps.SelectedIndex == 4)
+            {
+                int index = gridProcesos.Rows.Add();
+                gridProcesos.Rows[index].Cells["NumProceso"].Value = "Visual Studio Code";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
+                gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
+            }
+            else if (comboBoxApps.SelectedIndex == 5)
+            {
+                int index = gridProcesos.Rows.Add();
+                gridProcesos.Rows[index].Cells["NumProceso"].Value = "Outlook";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
+                gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
+            }
+            else if (comboBoxApps.SelectedIndex == 6)
+            {
+                int index = gridProcesos.Rows.Add();
+                gridProcesos.Rows[index].Cells["NumProceso"].Value = "Adobe Ilustrator";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
+                gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
+            }
+            else if (comboBoxApps.SelectedIndex == 7)
+            {
+                int index = gridProcesos.Rows.Add();
+                gridProcesos.Rows[index].Cells["NumProceso"].Value = "MySQL";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
+                gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
+            }
+
+            else if (comboBoxApps.SelectedIndex == 8)
+            {
+                int index = gridProcesos.Rows.Add();
+                gridProcesos.Rows[index].Cells["NumProceso"].Value = "Paint";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
+                gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
+            }
+            else if (comboBoxApps.SelectedIndex == 9)
+            {
+                int index = gridProcesos.Rows.Add();
+                gridProcesos.Rows[index].Cells["NumProceso"].Value = "Teams";
+                gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = "3";
+                gridProcesos.Rows[index].Cells["EstadoProceso"].Value = "En Espera";
+                gridProcesos.Rows[index].Cells["Ciclos"].Value = txtCiclos.Text;
+            }
+        }
     }
+    
 }

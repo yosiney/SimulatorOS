@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.txtCiclos = new System.Windows.Forms.TextBox();
+            this.buttonAgregar = new System.Windows.Forms.Button();
             this.comboBoxApps = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridProcesos = new System.Windows.Forms.DataGridView();
             this.NumProceso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ciclos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TiempoProcesos = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,12 +48,12 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.gridMemoriaVirtual = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.gridMemoriaRAM = new System.Windows.Forms.DataGridView();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,13 +78,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonIniciarSimulacion = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProcesos)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMemoriaVirtual)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMemoriaRAM)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -92,18 +92,30 @@
             // 
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.buttonAdd);
+            this.groupBox1.Controls.Add(this.txtCiclos);
+            this.groupBox1.Controls.Add(this.buttonAgregar);
             this.groupBox1.Controls.Add(this.comboBoxApps);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(9, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(376, 192);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar procesos";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(233, 27);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(82, 17);
+            this.label19.TabIndex = 24;
+            this.label19.Text = "Quantum: 3";
+            this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
             // label3
             // 
@@ -115,24 +127,25 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Ciclos de Aplicacion:";
             // 
-            // textBox2
+            // txtCiclos
             // 
-            this.textBox2.Location = new System.Drawing.Point(215, 98);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(67, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtCiclos.Location = new System.Drawing.Point(215, 98);
+            this.txtCiclos.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCiclos.Name = "txtCiclos";
+            this.txtCiclos.ReadOnly = true;
+            this.txtCiclos.Size = new System.Drawing.Size(67, 20);
+            this.txtCiclos.TabIndex = 4;
             // 
-            // buttonAdd
+            // buttonAgregar
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(142, 150);
-            this.buttonAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(88, 28);
-            this.buttonAdd.TabIndex = 2;
-            this.buttonAdd.Text = "Agregar";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAgregar.Location = new System.Drawing.Point(142, 150);
+            this.buttonAgregar.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonAgregar.Name = "buttonAgregar";
+            this.buttonAgregar.Size = new System.Drawing.Size(88, 28);
+            this.buttonAgregar.TabIndex = 2;
+            this.buttonAgregar.Text = "Agregar";
+            this.buttonAgregar.UseVisualStyleBackColor = true;
+            this.buttonAgregar.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // comboBoxApps
             // 
@@ -149,7 +162,7 @@
             "Paint",
             "Teams"});
             this.comboBoxApps.Location = new System.Drawing.Point(14, 88);
-            this.comboBoxApps.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxApps.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxApps.Name = "comboBoxApps";
             this.comboBoxApps.Size = new System.Drawing.Size(158, 21);
             this.comboBoxApps.TabIndex = 1;
@@ -168,11 +181,11 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.gridProcesos);
             this.groupBox2.Location = new System.Drawing.Point(402, 10);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(486, 192);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
@@ -189,11 +202,11 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Lista de procesos agregados:";
             // 
-            // dataGridView1
+            // gridProcesos
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridProcesos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridProcesos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridProcesos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumProceso,
             this.Ciclos,
             this.TiempoProcesos,
@@ -201,13 +214,13 @@
             this.EstadoProceso,
             this.TiempoFinal,
             this.TiempoRetorno});
-            this.dataGridView1.Location = new System.Drawing.Point(19, 56);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(463, 122);
-            this.dataGridView1.TabIndex = 0;
+            this.gridProcesos.Location = new System.Drawing.Point(19, 56);
+            this.gridProcesos.Margin = new System.Windows.Forms.Padding(2);
+            this.gridProcesos.Name = "gridProcesos";
+            this.gridProcesos.RowHeadersWidth = 51;
+            this.gridProcesos.RowTemplate.Height = 24;
+            this.gridProcesos.Size = new System.Drawing.Size(463, 122);
+            this.gridProcesos.TabIndex = 0;
             // 
             // NumProceso
             // 
@@ -262,15 +275,15 @@
             // 
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.dataGridView3);
-            this.groupBox3.Controls.Add(this.dataGridView2);
+            this.groupBox3.Controls.Add(this.gridMemoriaVirtual);
+            this.groupBox3.Controls.Add(this.gridMemoriaRAM);
             this.groupBox3.Controls.Add(this.panel2);
             this.groupBox3.Controls.Add(this.panel1);
             this.groupBox3.Controls.Add(this.buttonIniciarSimulacion);
             this.groupBox3.Location = new System.Drawing.Point(9, 222);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(874, 387);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
@@ -299,19 +312,19 @@
             this.label17.TabIndex = 23;
             this.label17.Text = "Procesos Memoria RAM";
             // 
-            // dataGridView3
+            // gridMemoriaVirtual
             // 
-            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridMemoriaVirtual.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridMemoriaVirtual.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridMemoriaVirtual.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.dataGridView3.Location = new System.Drawing.Point(445, 36);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(415, 130);
-            this.dataGridView3.TabIndex = 22;
+            this.gridMemoriaVirtual.Location = new System.Drawing.Point(445, 36);
+            this.gridMemoriaVirtual.Name = "gridMemoriaVirtual";
+            this.gridMemoriaVirtual.Size = new System.Drawing.Size(415, 130);
+            this.gridMemoriaVirtual.TabIndex = 22;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -333,19 +346,19 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Consumo CPU";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // dataGridView2
+            // gridMemoriaRAM
             // 
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridMemoriaRAM.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridMemoriaRAM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridMemoriaRAM.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dataGridView2.Location = new System.Drawing.Point(14, 36);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(399, 130);
-            this.dataGridView2.TabIndex = 21;
+            this.gridMemoriaRAM.Location = new System.Drawing.Point(14, 36);
+            this.gridMemoriaRAM.Name = "gridMemoriaRAM";
+            this.gridMemoriaRAM.Size = new System.Drawing.Size(399, 130);
+            this.gridMemoriaRAM.TabIndex = 21;
             // 
             // Column4
             // 
@@ -579,18 +592,6 @@
             this.buttonIniciarSimulacion.Text = "Iniciar";
             this.buttonIniciarSimulacion.UseVisualStyleBackColor = true;
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(233, 27);
-            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(82, 17);
-            this.label19.TabIndex = 24;
-            this.label19.Text = "Quantum: 3";
-            this.label19.Click += new System.EventHandler(this.label19_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -606,11 +607,11 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProcesos)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMemoriaVirtual)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridMemoriaRAM)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -623,12 +624,12 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.TextBox txtCiclos;
+        private System.Windows.Forms.Button buttonAgregar;
         private System.Windows.Forms.ComboBox comboBoxApps;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gridProcesos;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumProceso;
@@ -640,12 +641,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TiempoRetorno;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView gridMemoriaVirtual;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView gridMemoriaRAM;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

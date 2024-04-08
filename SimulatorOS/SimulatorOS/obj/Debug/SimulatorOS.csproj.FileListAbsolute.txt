@@ -9,3 +9,13 @@ C:\Users\user\Documents\UACA\7 cuatrimestre\Sistemas Operativos\Proyect final\Si
 C:\Users\user\Documents\UACA\7 cuatrimestre\Sistemas Operativos\Proyect final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.csproj.CoreCompileInputs.cache
 C:\Users\user\Documents\UACA\7 cuatrimestre\Sistemas Operativos\Proyect final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.exe
 C:\Users\user\Documents\UACA\7 cuatrimestre\Sistemas Operativos\Proyect final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.pdb
+C:\Users\XPC\Desktop\U\Sistemas Operativos\Proyecto final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.csproj.AssemblyReference.cache
+C:\Users\XPC\Desktop\U\Sistemas Operativos\Proyecto final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.Form1.resources
+C:\Users\XPC\Desktop\U\Sistemas Operativos\Proyecto final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.Properties.Resources.resources
+C:\Users\XPC\Desktop\U\Sistemas Operativos\Proyecto final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.csproj.GenerateResource.cache
+C:\Users\XPC\Desktop\U\Sistemas Operativos\Proyecto final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.csproj.CoreCompileInputs.cache
+C:\Users\XPC\Desktop\U\Sistemas Operativos\Proyecto final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.exe
+C:\Users\XPC\Desktop\U\Sistemas Operativos\Proyecto final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.pdb
+C:\Users\XPC\Desktop\U\Sistemas Operativos\Proyecto final\SimulatorOS\SimulatorOS\bin\Debug\SimulatorOS.exe.config
+C:\Users\XPC\Desktop\U\Sistemas Operativos\Proyecto final\SimulatorOS\SimulatorOS\bin\Debug\SimulatorOS.exe
+C:\Users\XPC\Desktop\U\Sistemas Operativos\Proyecto final\SimulatorOS\SimulatorOS\bin\Debug\SimulatorOS.pdb
