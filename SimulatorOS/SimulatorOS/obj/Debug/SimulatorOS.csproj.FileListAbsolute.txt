@@ -19,3 +19,13 @@ C:\Users\XPC\Desktop\U\Sistemas Operativos\Proyecto final\SimulatorOS\SimulatorO
 C:\Users\XPC\Desktop\U\Sistemas Operativos\Proyecto final\SimulatorOS\SimulatorOS\bin\Debug\SimulatorOS.exe.config
 C:\Users\XPC\Desktop\U\Sistemas Operativos\Proyecto final\SimulatorOS\SimulatorOS\bin\Debug\SimulatorOS.exe
 C:\Users\XPC\Desktop\U\Sistemas Operativos\Proyecto final\SimulatorOS\SimulatorOS\bin\Debug\SimulatorOS.pdb
+C:\Users\joser\Desktop\U\04 Sistemas Operativo I\15 Proyecto Final\SimulatorOS\SimulatorOS\SimulatorOS\bin\Debug\SimulatorOS.exe.config
+C:\Users\joser\Desktop\U\04 Sistemas Operativo I\15 Proyecto Final\SimulatorOS\SimulatorOS\SimulatorOS\bin\Debug\SimulatorOS.exe
+C:\Users\joser\Desktop\U\04 Sistemas Operativo I\15 Proyecto Final\SimulatorOS\SimulatorOS\SimulatorOS\bin\Debug\SimulatorOS.pdb
+C:\Users\joser\Desktop\U\04 Sistemas Operativo I\15 Proyecto Final\SimulatorOS\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.csproj.AssemblyReference.cache
+C:\Users\joser\Desktop\U\04 Sistemas Operativo I\15 Proyecto Final\SimulatorOS\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.Form1.resources
+C:\Users\joser\Desktop\U\04 Sistemas Operativo I\15 Proyecto Final\SimulatorOS\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.Properties.Resources.resources
+C:\Users\joser\Desktop\U\04 Sistemas Operativo I\15 Proyecto Final\SimulatorOS\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.csproj.GenerateResource.cache
+C:\Users\joser\Desktop\U\04 Sistemas Operativo I\15 Proyecto Final\SimulatorOS\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.csproj.CoreCompileInputs.cache
+C:\Users\joser\Desktop\U\04 Sistemas Operativo I\15 Proyecto Final\SimulatorOS\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.exe
+C:\Users\joser\Desktop\U\04 Sistemas Operativo I\15 Proyecto Final\SimulatorOS\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.pdb
