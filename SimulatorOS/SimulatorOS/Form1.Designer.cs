@@ -115,7 +115,6 @@
             this.label19.Size = new System.Drawing.Size(82, 17);
             this.label19.TabIndex = 24;
             this.label19.Text = "Quantum: 3";
-            this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
             // label3
             // 
@@ -288,7 +287,6 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Simulacion:";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // label18
             // 
