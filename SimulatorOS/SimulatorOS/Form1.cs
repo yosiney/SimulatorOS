@@ -37,6 +37,13 @@ namespace SimulatorOS
             comboBoxApps.DropDownStyle = ComboBoxStyle.DropDownList;
             gridProcesos.AllowUserToAddRows = false;
 
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new System.Drawing.Point(
+                (Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
+                (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2
+                );
+
+
 
             // Configurar el temporizador de 3s
             //timer = new Timer();
@@ -63,7 +70,6 @@ namespace SimulatorOS
 
         }
 
-
         private void Timer_Tick3s()
         {
             int restanteVar = Convert.ToInt32(gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value);
@@ -72,175 +78,79 @@ namespace SimulatorOS
             {
                 indexFila++;
 
-                // Verificar si hay más filas para procesar
-                int totalFilas = (gridProcesos.Rows.Count);
-                if (indexFila < totalFilas)
+                Verificar_si_hay_más_filas_para_procesar();
+            }
+            else
+            {
+                Verificar_si_hay_más_filas_para_procesar();
+            }
+        }
+
+        private void Verificar_si_hay_más_filas_para_procesar()
+        {
+            // Verificar si hay más filas para procesar
+            int totalFilas = (gridProcesos.Rows.Count);
+            if (indexFila < totalFilas)
+            {
+                // Obtener el valor actual de la columna "ciclo"
+                int restante = Convert.ToInt32(gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value);
+
+                // Restar 3 segundos al ciclo actual
+                restante -= 3;
+
+                // Asegurarse de que el ciclo no sea negativo
+                if (restante < 0)
+                    restante = 0;
+
+                // Actualizar el valor de la columna "ciclo"
+                gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value = restante;
+
+                // Avanzar al siguiente índice de fila
+                int varIndex = indexFila + 1;
+
+                if (varIndex < totalFilas)
                 {
-                    // Obtener el valor actual de la columna "ciclo"
-                    int restante = Convert.ToInt32(gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value);
-
-                    // Restar 3 segundos al ciclo actual
-                    restante -= 3;
-
-                    // Asegurarse de que el ciclo no sea negativo
-                    if (restante < 0)
-                        restante = 0;
-
-                    // Actualizar el valor de la columna "ciclo"
-                    gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value = restante;
-
-                    // Avanzar al siguiente índice de fila
-                    int varIndex = indexFila + 1;
-
-                    if (varIndex < totalFilas)
-                    {
-                        indexFila++;
-                    }
-                    else
-                    {
-                        // Verificar si todas las filas tienen el ciclo en 0
-                        bool allZero = true;
-                        foreach (DataGridViewRow row in gridProcesos.Rows)
-                        {
-                            restante = Convert.ToInt32(row.Cells["RestanteCiclo"].Value);
-                            if (restante > 0)
-                            {
-                                allZero = false;
-                                indexFila = 0;
-                                break;
-                            }
-                        }
-
-                        // Detener el temporizador si todas las filas tienen el ciclo en 0
-                        if (allZero)
-                        {
-                            timer.Stop();
-                            MessageBox.Show("Timer terminado");
-                        }
-                        else
-                        {
-                            // Reiniciar el índice de fila para recorrer nuevamente
-                            indexFila = 0;
-                        }
-
-                        indexFila = 0;
-                    }
-
+                    indexFila++;
                 }
                 else
                 {
-                    // Verificar si todas las filas tienen el ciclo en 0
-                    bool allZero = true;
-                    foreach (DataGridViewRow row in gridProcesos.Rows)
-                    {
-                        int restante = Convert.ToInt32(row.Cells["RestanteCiclo"].Value);
-                        if (restante > 0)
-                        {
-                            allZero = false;
-                            indexFila = 0;
-                            break;
-                        }
-                    }
+                    Verificar_si_todas_las_filas_tienen_el_ciclo_en_0();
 
-                    // Detener el temporizador si todas las filas tienen el ciclo en 0
-                    if (allZero)
-                    {
-                        timer.Stop();
-                        MessageBox.Show("Timer terminado");
-                    }
-                    else
-                    {
-                        // Reiniciar el índice de fila para recorrer nuevamente
-                        indexFila = 0;
-                    }
+                    indexFila = 0;
                 }
             }
             else
             {
-                // Verificar si hay más filas para procesar
-                int totalFilas = (gridProcesos.Rows.Count);
-                if (indexFila < totalFilas)
+                Verificar_si_todas_las_filas_tienen_el_ciclo_en_0();
+            }
+        }
+
+        private void Verificar_si_todas_las_filas_tienen_el_ciclo_en_0() 
+        {
+            // Verificar si todas las filas tienen el ciclo en 0
+            bool allZero = true;
+            foreach (DataGridViewRow row in gridProcesos.Rows)
+            {
+                int restante = Convert.ToInt32(row.Cells["RestanteCiclo"].Value);
+                if (restante > 0)
                 {
-                    // Obtener el valor actual de la columna "ciclo"
-                    int restante = Convert.ToInt32(gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value);
-
-                    // Restar 3 segundos al ciclo actual
-                    restante -= 3;
-
-                    // Asegurarse de que el ciclo no sea negativo
-                    if (restante < 0)
-                        restante = 0;
-
-                    // Actualizar el valor de la columna "ciclo"
-                    gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value = restante;
-
-                    // Avanzar al siguiente índice de fila
-                    int varIndex = indexFila + 1;
-
-                    if (varIndex < totalFilas)
-                    {
-                        indexFila++;
-                    }
-                    else
-                    {
-                        // Verificar si todas las filas tienen el ciclo en 0
-                        bool allZero = true;
-                        foreach (DataGridViewRow row in gridProcesos.Rows)
-                        {
-                            restante = Convert.ToInt32(row.Cells["RestanteCiclo"].Value);
-                            if (restante > 0)
-                            {
-                                allZero = false;
-                                indexFila = 0;
-                                break;
-                            }
-                        }
-
-                        // Detener el temporizador si todas las filas tienen el ciclo en 0
-                        if (allZero)
-                        {
-                            timer.Stop();
-                            MessageBox.Show("Timer terminado");
-                        }
-                        else
-                        {
-                            // Reiniciar el índice de fila para recorrer nuevamente
-                            indexFila = 0;
-                        }
-
-                        indexFila = 0;
-                    }
-
-                }
-                else
-                {
-                    // Verificar si todas las filas tienen el ciclo en 0
-                    bool allZero = true;
-                    foreach (DataGridViewRow row in gridProcesos.Rows)
-                    {
-                        int restante = Convert.ToInt32(row.Cells["RestanteCiclo"].Value);
-                        if (restante > 0)
-                        {
-                            allZero = false;
-                            indexFila = 0;
-                            break;
-                        }
-                    }
-
-                    // Detener el temporizador si todas las filas tienen el ciclo en 0
-                    if (allZero)
-                    {
-                        timer.Stop();
-                        MessageBox.Show("Timer terminado");
-                    }
-                    else
-                    {
-                        // Reiniciar el índice de fila para recorrer nuevamente
-                        indexFila = 0;
-                    }
+                    allZero = false;
+                    indexFila = 0;
+                    break;
                 }
             }
 
+            // Detener el temporizador si todas las filas tienen el ciclo en 0
+            if (allZero)
+            {
+                timer.Stop();
+                MessageBox.Show("Timer terminado");
+            }
+            else
+            {
+                // Reiniciar el índice de fila para recorrer nuevamente
+                indexFila = 0;
+            }
         }
 
         private void comboBoxApps_SelectedIndexChanged(object sender, EventArgs e)
@@ -299,7 +209,6 @@ namespace SimulatorOS
                 txtCiclos.Text = "16";
             }
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -313,7 +222,6 @@ namespace SimulatorOS
             gridProcesos.Rows[index].Cells["EstadoProceso"].Value = proceso.estado;
             gridProcesos.Rows[index].Cells["Ciclos"].Value = proceso.ciclos;
             gridProcesos.Rows[index].Cells["RestanteCiclo"].Value = proceso.ciclos;
-            
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -358,8 +266,29 @@ namespace SimulatorOS
 
         private void buttonIniciarSimulacion_Click(object sender, EventArgs e)
         {
-            // Iniciar el temporizador
-            timer.Start();
+            if (gridProcesos.Rows.Count > 0)
+            {
+                MessageBox.Show("Iniciando Procesos!!!.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                timer.Start();
+            }
+            else
+            {
+                MessageBox.Show("No hay ningún proceso para simular. Agregue procesos antes de iniciar la simulación.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Verifica si hay una fila seleccionada
+            if (gridProcesos.SelectedRows.Count > 0)
+            {
+                // Elimina la fila seleccionada
+                gridProcesos.Rows.RemoveAt(gridProcesos.SelectedRows[0].Index);
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una fila para eliminar.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 

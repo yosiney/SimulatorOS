@@ -29,3 +29,13 @@ C:\Users\joser\Desktop\U\04 Sistemas Operativo I\15 Proyecto Final\SimulatorOS\S
 C:\Users\joser\Desktop\U\04 Sistemas Operativo I\15 Proyecto Final\SimulatorOS\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.csproj.CoreCompileInputs.cache
 C:\Users\joser\Desktop\U\04 Sistemas Operativo I\15 Proyecto Final\SimulatorOS\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.exe
 C:\Users\joser\Desktop\U\04 Sistemas Operativo I\15 Proyecto Final\SimulatorOS\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.pdb
+C:\Users\yosin\Documents\Universidad\Cuatri 7\Sistemas operativos\Proyecto final\SimulatorOS\SimulatorOS\bin\Debug\SimulatorOS.exe.config
+C:\Users\yosin\Documents\Universidad\Cuatri 7\Sistemas operativos\Proyecto final\SimulatorOS\SimulatorOS\bin\Debug\SimulatorOS.exe
+C:\Users\yosin\Documents\Universidad\Cuatri 7\Sistemas operativos\Proyecto final\SimulatorOS\SimulatorOS\bin\Debug\SimulatorOS.pdb
+C:\Users\yosin\Documents\Universidad\Cuatri 7\Sistemas operativos\Proyecto final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.csproj.AssemblyReference.cache
+C:\Users\yosin\Documents\Universidad\Cuatri 7\Sistemas operativos\Proyecto final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.Form1.resources
+C:\Users\yosin\Documents\Universidad\Cuatri 7\Sistemas operativos\Proyecto final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.Properties.Resources.resources
+C:\Users\yosin\Documents\Universidad\Cuatri 7\Sistemas operativos\Proyecto final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.csproj.GenerateResource.cache
+C:\Users\yosin\Documents\Universidad\Cuatri 7\Sistemas operativos\Proyecto final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.csproj.CoreCompileInputs.cache
+C:\Users\yosin\Documents\Universidad\Cuatri 7\Sistemas operativos\Proyecto final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.exe
+C:\Users\yosin\Documents\Universidad\Cuatri 7\Sistemas operativos\Proyecto final\SimulatorOS\SimulatorOS\obj\Debug\SimulatorOS.pdb
