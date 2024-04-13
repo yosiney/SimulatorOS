@@ -159,54 +159,54 @@ namespace SimulatorOS
             if (comboBoxApps.SelectedIndex == 0)
             {
                 Chrome = new Process("Google Chrome", 50, 2, 10, tiempoProcesoValue, "Cargado");
-                txtCiclos.Text = "10";
+                txtCiclos.Text = Chrome.ciclos.ToString();
             }
             else if (comboBoxApps.SelectedIndex == 1)
             {
                 Spotify = new Process("Spotify", 100, 3, 8, tiempoProcesoValue, "Cargado");
-                txtCiclos.Text = "8";
+                txtCiclos.Text = Spotify.ciclos.ToString();
             }
             else if (comboBoxApps.SelectedIndex == 2)
             {
                 Word = new Process("Word", 115, 4, 12, tiempoProcesoValue, "Cargado");
-                txtCiclos.Text = "12";
+                txtCiclos.Text = Word.ciclos.ToString();
             }
             else if (comboBoxApps.SelectedIndex == 3)
             {
                 Photoshop = new Process("Photoshop", 120, 5, 15, tiempoProcesoValue, "Cargado");
-                txtCiclos.Text = "15";
+                txtCiclos.Text = Photoshop.ciclos.ToString();
 
             }
             else if (comboBoxApps.SelectedIndex == 4)
             {
                 VSCode = new Process("VSCode", 125, 6, 18, tiempoProcesoValue,  "Cargado");
-                txtCiclos.Text = "18";
+                txtCiclos.Text = VSCode.ciclos.ToString();
             }
             else if (comboBoxApps.SelectedIndex == 5)
             {
                 Outlook = new Process("Outlook", 130, 7, 11, tiempoProcesoValue, "Cargado");
-                txtCiclos.Text = "11";
+                txtCiclos.Text = Outlook.ciclos.ToString();
             }
             else if (comboBoxApps.SelectedIndex == 6)
             {
                 Ilustrator = new Process("Ilustrator", 140, 8, 12, tiempoProcesoValue,  "Cargado");
-                txtCiclos.Text = "12";
+                txtCiclos.Text = Ilustrator.ciclos.ToString();
             }
             else if (comboBoxApps.SelectedIndex == 7)
             {
                 MySQL = new Process("MySQL", 150, 9, 14, tiempoProcesoValue, "Cargado");
-                txtCiclos.Text = "14";
+                txtCiclos.Text = MySQL.ciclos.ToString();
             }
 
             else if (comboBoxApps.SelectedIndex == 8)
             {
                 Paint = new Process("Paint", 155, 10, 20, tiempoProcesoValue, "Cargado");
-                txtCiclos.Text = "20";
+                txtCiclos.Text = Paint.ciclos.ToString();
             }
             else if (comboBoxApps.SelectedIndex == 9)
             {
                 Teams = new Process("Teams", 160, 11, 16, tiempoProcesoValue, "Cargado");
-                txtCiclos.Text = "16";
+                txtCiclos.Text = Teams.ciclos.ToString();
             }
         }
         private void Form1_Load(object sender, EventArgs e)
