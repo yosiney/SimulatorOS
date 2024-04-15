@@ -31,6 +31,12 @@ namespace SimulatorOS
         private int indexFila = 0;
 
         private int secondsPassed = 0;
+        private bool banderaGuardarSeg = false;
+
+
+        //diccionario que almacena los segundos de los procesos
+        Dictionary<int, int> segundosPorProceso = new Dictionary<int, int>();
+        Dictionary<int, int> tiempoRetorno = new Dictionary<int, int>();
         public Form1()
         {
             InitializeComponent();
@@ -44,13 +50,6 @@ namespace SimulatorOS
                 );
 
 
-
-            // Configurar el temporizador de 3s
-            //timer = new Timer();
-            //timer.Interval = 3000; 
-            //timer.Tick += Timer_Tick3s;
-
-
             // Configurar el temporizador de 1s
             timer = new Timer();
             timer.Interval = 1000;
@@ -62,70 +61,169 @@ namespace SimulatorOS
             // Incrementar el contador de segundos
             secondsPassed++;
 
+            int restanteVar = Convert.ToInt32(gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value);
+
+            //si el indice tiene ciclos restantes entrara al if
+            if (restanteVar != 0)
+            {
+                gridProcesos.Rows[indexFila].Cells["EstadoProceso"].Value = "Ejecutando";
+
+                // Registrar el tiempo en el momento en que el proceso comienza a ejecutarse
+                if (banderaGuardarSeg == false)
+                {
+                    int indiceActual = indexFila;
+                    //si el indice no tiene registro se ingresa al diccionario
+                    if (!segundosPorProceso.ContainsKey(indiceActual))
+                    {
+                        segundosPorProceso.Add(indiceActual, secondsPassed);
+                        banderaGuardarSeg = true;
+                    }
+                    else
+                    //si ya tiene registro solo se le suma los segundos
+                    {
+                        banderaGuardarSeg = true;
+                        segundosPorProceso[indiceActual] += secondsPassed;
+                    }
+                }
+
+            }
+            else
+            //si el indice no tiene ciclos pendientes se meuestra el estado terminado
+            {
+                gridProcesos.Rows[indexFila].Cells["EstadoProceso"].Value = "Terminado";
+            }
+
             // Realizar la acción cada 3 segundos
             if (secondsPassed % 3 == 0)
             {
+                // ejecutar la función del procesamiento de procesos
                 Timer_Tick3s();
+                //restablece la bandera para que sepa que se cambiara de indice
+                banderaGuardarSeg = false;
             }
-
         }
+
+
+
 
         private void Timer_Tick3s()
         {
-            int restanteVar = Convert.ToInt32(gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value);
+            bool hayMasFilasParaProcesar = false;
 
-            if (restanteVar == 0)
+            // Avanzar al siguiente índice de fila hasta encontrar una fila con RestanteCiclo diferente de cero
+            while (true)
             {
-                indexFila++;
+                int restanteVar = Convert.ToInt32(gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value);
 
-                Verificar_si_hay_más_filas_para_procesar();
-            }
-            else
-            {
-                Verificar_si_hay_más_filas_para_procesar();
-            }
-        }
-
-        private void Verificar_si_hay_más_filas_para_procesar()
-        {
-            // Verificar si hay más filas para procesar
-            int totalFilas = (gridProcesos.Rows.Count);
-            if (indexFila < totalFilas)
-            {
-                // Obtener el valor actual de la columna "ciclo"
-                int restante = Convert.ToInt32(gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value);
-
-                // Restar 3 segundos al ciclo actual
-                restante -= 3;
-
-                // Asegurarse de que el ciclo no sea negativo
-                if (restante < 0)
-                    restante = 0;
-
-                // Actualizar el valor de la columna "ciclo"
-                gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value = restante;
-
-                // Avanzar al siguiente índice de fila
-                int varIndex = indexFila + 1;
-
-                if (varIndex < totalFilas)
+                if (restanteVar != 0)
                 {
-                    indexFila++;
+                    // Si RestanteCiclo no es cero, hay más filas para procesar
+                    hayMasFilasParaProcesar = true;
+                    ProcesarFila();
+                    break;
                 }
                 else
                 {
-                    Verificar_si_todas_las_filas_tienen_el_ciclo_en_0();
+                    // Si RestanteCiclo es cero, pasar a la siguiente fila
+                    indexFila++;
 
-                    indexFila = 0;
+                    // Si hemos llegado al final de la cuadrícula, volver al inicio
+                    int filasTotal = (gridProcesos.Rows.Count);
+                    if (indexFila == filasTotal)
+                    {
+                        indexFila = 0;
+                    }
+
                 }
+            }
+
+        }
+
+        private int ObtenerSiguienteIndiceFila(int indiceActual)
+        {
+            int totalFilas = gridProcesos.Rows.Count;
+
+            // Iteramos a través de las filas hasta encontrar una con RestanteCiclo > 0
+            for (int i = 0; i < totalFilas; i++)
+            {
+                int siguienteIndice = (indiceActual + i + 1) % totalFilas;
+                int restanteVar = Convert.ToInt32(gridProcesos.Rows[siguienteIndice].Cells["RestanteCiclo"].Value);
+                if (restanteVar > 0)
+                {
+                    // Se encontró una fila con RestanteCiclo > 0, retornamos su índice
+                    return siguienteIndice;
+                }
+            }
+
+            // Si llegamos aquí, significa que todas las filas tienen RestanteCiclo == 0
+            // En ese caso, devolvemos el índice actual para indicar que solo queda una fila
+            return indiceActual;
+        }
+
+
+
+
+
+        private void ProcesarFila()
+        {
+            // Verificar si hay más filas para procesar
+            int totalFilas = (gridProcesos.Rows.Count);
+            
+            // Obtener el valor actual de la columna "ciclo"
+            int restante = Convert.ToInt32(gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value);
+
+            // Restar 3 segundos al ciclo actual
+            restante -= 3;
+
+            // Asegurarse de que el ciclo no sea negativo
+            if (restante <= 0)
+            {
+                restante = 0;
+                gridProcesos.Rows[indexFila].Cells["EstadoProceso"].Value = "Terminado";
+
+                //almaceno el tiempo de retorno (su ultima ejecucion)
+                //si el indice no tiene registro se ingresa al diccionario
+                if (!tiempoRetorno.ContainsKey(indexFila))
+                {
+                    tiempoRetorno.Add(indexFila, secondsPassed);
+                }
+
             }
             else
             {
-                Verificar_si_todas_las_filas_tienen_el_ciclo_en_0();
+                gridProcesos.Rows[indexFila].Cells["EstadoProceso"].Value = "Espera";
             }
+                    
+
+            // Actualizar el valor de la columna "ciclo"
+            gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value = restante;
+
+            //para verificar si faltan procesos
+            VerificarRestante0();
+
+            // Avanzar al siguiente índice de fila
+            int siguienteIndice;
+
+            // Obtenemos el siguiente índice de fila que cumple con los criterios
+            siguienteIndice = ObtenerSiguienteIndiceFila(indexFila);
+
+            if (siguienteIndice != -1)
+            {
+                // Se encontró un índice válido, lo asignamos a indexFila
+                indexFila = siguienteIndice;
+            }
+            else
+            {
+                // No se encontró ningún índice válido, reiniciamos a 0
+                indexFila = 0;
+                VerificarRestante0();
+            }
+            
+
+
         }
 
-        private void Verificar_si_todas_las_filas_tienen_el_ciclo_en_0() 
+        private void VerificarRestante0() 
         {
             // Verificar si todas las filas tienen el ciclo en 0
             bool allZero = true;
@@ -135,7 +233,6 @@ namespace SimulatorOS
                 if (restante > 0)
                 {
                     allZero = false;
-                    indexFila = 0;
                     break;
                 }
             }
@@ -145,11 +242,33 @@ namespace SimulatorOS
             {
                 timer.Stop();
                 MessageBox.Show("Timer terminado");
-            }
-            else
-            {
-                // Reiniciar el índice de fila para recorrer nuevamente
                 indexFila = 0;
+
+                int largoTabla = gridProcesos.Rows.Count;
+
+                int sumaTotales = 0, sumaRetornos = 0;
+
+                for (int i = 0; i < largoTabla; i++)
+                {
+                    //muestro el tiempo de espera
+                    int sumaSegundos = ((segundosPorProceso[i]) - 3);
+                    sumaTotales += sumaSegundos;
+                    gridProcesos.Rows[i].Cells["TiempoFinal"].Value = sumaSegundos;
+
+                    //muestro el tiempo de retorno
+                    int retornoTime = tiempoRetorno[i];
+                    sumaRetornos += retornoTime;
+                    gridProcesos.Rows[i].Cells["TiempoRetorno"].Value = retornoTime;
+                }
+
+                //calculo los promedios
+                float promedioEspera = (sumaTotales / largoTabla);
+                float promedioRetorno = (sumaRetornos / largoTabla);
+                //muestro en pantalla
+                txtPromedioEspera.Text = promedioEspera.ToString();
+                txtPromedioRetorno.Text = promedioRetorno.ToString();
+
+
             }
         }
 
@@ -266,6 +385,13 @@ namespace SimulatorOS
 
         private void buttonIniciarSimulacion_Click(object sender, EventArgs e)
         {
+            segundosPorProceso.Clear();
+            tiempoRetorno.Clear();
+            indexFila = 0;
+            secondsPassed = 0;
+
+            txtPromedioEspera.Text = "";
+            txtPromedioRetorno.Text = "";
             if (gridProcesos.Rows.Count > 0)
             {
                 MessageBox.Show("Iniciando Procesos!!!.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
