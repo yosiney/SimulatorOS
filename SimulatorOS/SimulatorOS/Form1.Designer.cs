@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCiclos = new System.Windows.Forms.TextBox();
@@ -78,7 +79,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonIniciarSimulacion = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.loadingCircle = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProcesos)).BeginInit();
@@ -87,10 +88,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridMemoriaRAM)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingCircle)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.loadingCircle);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.label3);
@@ -99,19 +102,29 @@
             this.groupBox1.Controls.Add(this.comboBoxApps);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(9, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(376, 192);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(389, 226);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar procesos";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(258, 164);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 28);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Eliminar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(233, 27);
+            this.label19.Location = new System.Drawing.Point(217, 52);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(82, 17);
@@ -121,7 +134,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(198, 73);
+            this.label3.Location = new System.Drawing.Point(200, 88);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 13);
@@ -130,8 +143,8 @@
             // 
             // txtCiclos
             // 
-            this.txtCiclos.Location = new System.Drawing.Point(215, 98);
-            this.txtCiclos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCiclos.Location = new System.Drawing.Point(220, 115);
+            this.txtCiclos.Margin = new System.Windows.Forms.Padding(2);
             this.txtCiclos.Name = "txtCiclos";
             this.txtCiclos.ReadOnly = true;
             this.txtCiclos.Size = new System.Drawing.Size(67, 20);
@@ -139,8 +152,8 @@
             // 
             // buttonAgregar
             // 
-            this.buttonAgregar.Location = new System.Drawing.Point(142, 150);
-            this.buttonAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAgregar.Location = new System.Drawing.Point(149, 164);
+            this.buttonAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAgregar.Name = "buttonAgregar";
             this.buttonAgregar.Size = new System.Drawing.Size(88, 28);
             this.buttonAgregar.TabIndex = 2;
@@ -163,7 +176,7 @@
             "Paint",
             "Teams"});
             this.comboBoxApps.Location = new System.Drawing.Point(14, 88);
-            this.comboBoxApps.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxApps.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxApps.Name = "comboBoxApps";
             this.comboBoxApps.Size = new System.Drawing.Size(158, 21);
             this.comboBoxApps.TabIndex = 1;
@@ -184,10 +197,10 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.gridProcesos);
             this.groupBox2.Location = new System.Drawing.Point(402, 10);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(486, 192);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(644, 230);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Procesos";
@@ -215,12 +228,12 @@
             this.EstadoProceso,
             this.TiempoFinal,
             this.TiempoRetorno});
-            this.gridProcesos.Location = new System.Drawing.Point(19, 56);
-            this.gridProcesos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridProcesos.Location = new System.Drawing.Point(9, 73);
+            this.gridProcesos.Margin = new System.Windows.Forms.Padding(2);
             this.gridProcesos.Name = "gridProcesos";
             this.gridProcesos.RowHeadersWidth = 51;
             this.gridProcesos.RowTemplate.Height = 24;
-            this.gridProcesos.Size = new System.Drawing.Size(463, 122);
+            this.gridProcesos.Size = new System.Drawing.Size(624, 153);
             this.gridProcesos.TabIndex = 0;
             // 
             // NumProceso
@@ -281,11 +294,11 @@
             this.groupBox3.Controls.Add(this.panel2);
             this.groupBox3.Controls.Add(this.panel1);
             this.groupBox3.Controls.Add(this.buttonIniciarSimulacion);
-            this.groupBox3.Location = new System.Drawing.Point(9, 222);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Location = new System.Drawing.Point(9, 244);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Size = new System.Drawing.Size(874, 387);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Size = new System.Drawing.Size(1037, 485);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Simulacion:";
@@ -294,7 +307,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(489, 16);
+            this.label18.Location = new System.Drawing.Point(537, 34);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(169, 17);
@@ -305,7 +318,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(71, 16);
+            this.label17.Location = new System.Drawing.Point(22, 34);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(159, 17);
@@ -321,10 +334,10 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.gridMemoriaVirtual.Location = new System.Drawing.Point(445, 36);
+            this.gridMemoriaVirtual.Location = new System.Drawing.Point(527, 54);
             this.gridMemoriaVirtual.Name = "gridMemoriaVirtual";
             this.gridMemoriaVirtual.RowHeadersWidth = 51;
-            this.gridMemoriaVirtual.Size = new System.Drawing.Size(415, 130);
+            this.gridMemoriaVirtual.Size = new System.Drawing.Size(486, 156);
             this.gridMemoriaVirtual.TabIndex = 22;
             // 
             // dataGridViewTextBoxColumn1
@@ -360,10 +373,10 @@
             this.Column1,
             this.Column2,
             this.Column3});
-            this.gridMemoriaRAM.Location = new System.Drawing.Point(14, 36);
+            this.gridMemoriaRAM.Location = new System.Drawing.Point(25, 54);
             this.gridMemoriaRAM.Name = "gridMemoriaRAM";
             this.gridMemoriaRAM.RowHeadersWidth = 51;
-            this.gridMemoriaRAM.Size = new System.Drawing.Size(399, 130);
+            this.gridMemoriaRAM.Size = new System.Drawing.Size(447, 156);
             this.gridMemoriaRAM.TabIndex = 21;
             // 
             // Column4
@@ -399,16 +412,16 @@
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Location = new System.Drawing.Point(403, 182);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(527, 232);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(457, 114);
+            this.panel2.Size = new System.Drawing.Size(486, 139);
             this.panel2.TabIndex = 20;
             // 
             // txtPromedioRetorno
             // 
             this.txtPromedioRetorno.Location = new System.Drawing.Point(370, 68);
-            this.txtPromedioRetorno.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPromedioRetorno.Margin = new System.Windows.Forms.Padding(2);
             this.txtPromedioRetorno.Name = "txtPromedioRetorno";
             this.txtPromedioRetorno.ReadOnly = true;
             this.txtPromedioRetorno.Size = new System.Drawing.Size(67, 20);
@@ -438,7 +451,7 @@
             // txtPromedioEspera
             // 
             this.txtPromedioEspera.Location = new System.Drawing.Point(155, 68);
-            this.txtPromedioEspera.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPromedioEspera.Margin = new System.Windows.Forms.Padding(2);
             this.txtPromedioEspera.Name = "txtPromedioEspera";
             this.txtPromedioEspera.ReadOnly = true;
             this.txtPromedioEspera.Size = new System.Drawing.Size(67, 20);
@@ -488,10 +501,10 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(14, 182);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(20, 232);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(372, 114);
+            this.panel1.Size = new System.Drawing.Size(447, 139);
             this.panel1.TabIndex = 19;
             // 
             // textBox5
@@ -554,7 +567,7 @@
             // textBoxProcesoEjecucion
             // 
             this.textBoxProcesoEjecucion.Location = new System.Drawing.Point(76, 66);
-            this.textBoxProcesoEjecucion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxProcesoEjecucion.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxProcesoEjecucion.Name = "textBoxProcesoEjecucion";
             this.textBoxProcesoEjecucion.ReadOnly = true;
             this.textBoxProcesoEjecucion.Size = new System.Drawing.Size(67, 20);
@@ -594,8 +607,8 @@
             // 
             // buttonIniciarSimulacion
             // 
-            this.buttonIniciarSimulacion.Location = new System.Drawing.Point(337, 325);
-            this.buttonIniciarSimulacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonIniciarSimulacion.Location = new System.Drawing.Point(402, 408);
+            this.buttonIniciarSimulacion.Margin = new System.Windows.Forms.Padding(2);
             this.buttonIniciarSimulacion.Name = "buttonIniciarSimulacion";
             this.buttonIniciarSimulacion.Size = new System.Drawing.Size(190, 45);
             this.buttonIniciarSimulacion.TabIndex = 18;
@@ -603,21 +616,22 @@
             this.buttonIniciarSimulacion.UseVisualStyleBackColor = true;
             this.buttonIniciarSimulacion.Click += new System.EventHandler(this.buttonIniciarSimulacion_Click);
             // 
-            // button1
+            // loadingCircle
             // 
-            this.button1.Location = new System.Drawing.Point(240, 150);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 28);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Eliminar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.loadingCircle.Image = global::SimulatorOS.Properties.Resources.loading;
+            this.loadingCircle.Location = new System.Drawing.Point(20, 115);
+            this.loadingCircle.Name = "loadingCircle";
+            this.loadingCircle.Size = new System.Drawing.Size(104, 92);
+            this.loadingCircle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.loadingCircle.TabIndex = 26;
+            this.loadingCircle.TabStop = false;
+            this.loadingCircle.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 618);
+            this.ClientSize = new System.Drawing.Size(1070, 740);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -637,6 +651,7 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingCircle)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -694,6 +709,7 @@
         private System.Windows.Forms.Button buttonIniciarSimulacion;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox loadingCircle;
     }
 }
 

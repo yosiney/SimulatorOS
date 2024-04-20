@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -33,6 +34,9 @@ namespace SimulatorOS
         private int secondsPassed = 0;
         private bool banderaGuardarSeg = false;
 
+
+        private Memory Ram = new Memory(); // Memoria Ram
+        private Memory Virtual= new Memory(); // Memoria Virtual
 
         //diccionario que almacena los segundos de los procesos
         Dictionary<int, int> segundosPorProceso = new Dictionary<int, int>();
@@ -333,9 +337,25 @@ namespace SimulatorOS
 
         }
 
-        private void agregar(Process proceso) // agrega a la tabla
+        private void agregar(Process proceso) // agrega los procesos
+        {
+            if (Ram.hayEspacio(proceso)) // Comprueba que haya espacio disponible en la memoria Ram
+            {
+                Ram.push(proceso); // Agrega el proceso a la memoria Ram
+                agregarDataGrid(proceso); // Agrega el proceso al dataGrid
+
+            } else if (Virtual.hayEspacio(proceso)) // Comprueba que haya espacio disponible en la memoria Virtual
+            {
+                Virtual.push(proceso); // Agrega el proceso a la memoria Virtual
+                agregarDataGrid(proceso); // Agrega el proceso al dataGrid
+            }
+
+        }
+
+        private void agregarDataGrid(Process proceso) // Carga el dataGrid con los datos del proceso
         {
             int index = gridProcesos.Rows.Add();
+
             gridProcesos.Rows[index].Cells["NumProceso"].Value = proceso.nombre;
             gridProcesos.Rows[index].Cells["TiempoProcesos"].Value = proceso.tiempo;
             gridProcesos.Rows[index].Cells["EstadoProceso"].Value = proceso.estado;
@@ -343,7 +363,7 @@ namespace SimulatorOS
             gridProcesos.Rows[index].Cells["RestanteCiclo"].Value = proceso.ciclos;
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e) // boton agregar
         {
             int index = comboBoxApps.SelectedIndex;
             switch (index)
@@ -385,6 +405,7 @@ namespace SimulatorOS
 
         private void buttonIniciarSimulacion_Click(object sender, EventArgs e)
         {
+
             segundosPorProceso.Clear();
             tiempoRetorno.Clear();
             indexFila = 0;
