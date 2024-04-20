@@ -228,7 +228,7 @@
             this.EstadoProceso,
             this.TiempoFinal,
             this.TiempoRetorno});
-            this.gridProcesos.Location = new System.Drawing.Point(9, 73);
+            this.gridProcesos.Location = new System.Drawing.Point(9, 56);
             this.gridProcesos.Margin = new System.Windows.Forms.Padding(2);
             this.gridProcesos.Name = "gridProcesos";
             this.gridProcesos.RowHeadersWidth = 51;

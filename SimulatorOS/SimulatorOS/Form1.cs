@@ -66,6 +66,9 @@ namespace SimulatorOS
             secondsPassed++;
 
             int restanteVar = Convert.ToInt32(gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value);
+            DataGridViewRow filaSeleccionada = gridProcesos.CurrentRow;
+
+           // int tiempo = int.Parse(filaSeleccionada.Cells["RestanteCiclo"].Value.ToString());
 
             //si el indice tiene ciclos restantes entrara al if
             if (restanteVar != 0)
