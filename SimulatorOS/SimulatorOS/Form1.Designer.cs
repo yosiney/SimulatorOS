@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.loadingCircle = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -79,8 +80,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonIniciarSimulacion = new System.Windows.Forms.Button();
-            this.loadingCircle = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingCircle)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProcesos)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -88,7 +89,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridMemoriaRAM)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.loadingCircle)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -109,6 +109,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar procesos";
+            // 
+            // loadingCircle
+            // 
+            this.loadingCircle.Image = global::SimulatorOS.Properties.Resources.loading;
+            this.loadingCircle.Location = new System.Drawing.Point(20, 115);
+            this.loadingCircle.Name = "loadingCircle";
+            this.loadingCircle.Size = new System.Drawing.Size(104, 92);
+            this.loadingCircle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.loadingCircle.TabIndex = 26;
+            this.loadingCircle.TabStop = false;
+            this.loadingCircle.Visible = false;
             // 
             // button1
             // 
@@ -616,22 +627,11 @@
             this.buttonIniciarSimulacion.UseVisualStyleBackColor = true;
             this.buttonIniciarSimulacion.Click += new System.EventHandler(this.buttonIniciarSimulacion_Click);
             // 
-            // loadingCircle
-            // 
-            this.loadingCircle.Image = global::SimulatorOS.Properties.Resources.loading;
-            this.loadingCircle.Location = new System.Drawing.Point(20, 115);
-            this.loadingCircle.Name = "loadingCircle";
-            this.loadingCircle.Size = new System.Drawing.Size(104, 92);
-            this.loadingCircle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.loadingCircle.TabIndex = 26;
-            this.loadingCircle.TabStop = false;
-            this.loadingCircle.Visible = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1070, 740);
+            this.ClientSize = new System.Drawing.Size(1061, 740);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -640,6 +640,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loadingCircle)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProcesos)).EndInit();
@@ -651,7 +652,6 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.loadingCircle)).EndInit();
             this.ResumeLayout(false);
 
         }

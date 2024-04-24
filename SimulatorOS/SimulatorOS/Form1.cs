@@ -35,9 +35,6 @@ namespace SimulatorOS
         private bool banderaGuardarSeg = false;
 
 
-        private Memory Ram = new Memory(); // Memoria Ram
-        private Memory Virtual= new Memory(); // Memoria Virtual
-
         //diccionario que almacena los segundos de los procesos
         Dictionary<int, int> segundosPorProceso = new Dictionary<int, int>();
         Dictionary<int, int> tiempoRetorno = new Dictionary<int, int>();
@@ -68,7 +65,7 @@ namespace SimulatorOS
             int restanteVar = Convert.ToInt32(gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value);
             DataGridViewRow filaSeleccionada = gridProcesos.CurrentRow;
 
-           // int tiempo = int.Parse(filaSeleccionada.Cells["RestanteCiclo"].Value.ToString());
+            // int tiempo = int.Parse(filaSeleccionada.Cells["RestanteCiclo"].Value.ToString());
 
             //si el indice tiene ciclos restantes entrara al if
             if (restanteVar != 0)
@@ -175,7 +172,7 @@ namespace SimulatorOS
         {
             // Verificar si hay más filas para procesar
             int totalFilas = (gridProcesos.Rows.Count);
-            
+
             // Obtener el valor actual de la columna "ciclo"
             int restante = Convert.ToInt32(gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value);
 
@@ -200,7 +197,7 @@ namespace SimulatorOS
             {
                 gridProcesos.Rows[indexFila].Cells["EstadoProceso"].Value = "Espera";
             }
-                    
+
 
             // Actualizar el valor de la columna "ciclo"
             gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value = restante;
@@ -225,12 +222,12 @@ namespace SimulatorOS
                 indexFila = 0;
                 VerificarRestante0();
             }
-            
+
 
 
         }
 
-        private void VerificarRestante0() 
+        private void VerificarRestante0()
         {
             // Verificar si todas las filas tienen el ciclo en 0
             bool allZero = true;
@@ -282,59 +279,54 @@ namespace SimulatorOS
         private void comboBoxApps_SelectedIndexChanged(object sender, EventArgs e)
         {
             tiempoProcesoValue = (gridProcesos.Rows.Count);
-            if (comboBoxApps.SelectedIndex == 0)
+            int index = comboBoxApps.SelectedIndex;
+            switch (index)
             {
-                Chrome = new Process("Google Chrome", 50, 2, 10, tiempoProcesoValue, "Cargado");
-                txtCiclos.Text = Chrome.ciclos.ToString();
-            }
-            else if (comboBoxApps.SelectedIndex == 1)
-            {
-                Spotify = new Process("Spotify", 100, 3, 8, tiempoProcesoValue, "Cargado");
-                txtCiclos.Text = Spotify.ciclos.ToString();
-            }
-            else if (comboBoxApps.SelectedIndex == 2)
-            {
-                Word = new Process("Word", 115, 4, 12, tiempoProcesoValue, "Cargado");
-                txtCiclos.Text = Word.ciclos.ToString();
-            }
-            else if (comboBoxApps.SelectedIndex == 3)
-            {
-                Photoshop = new Process("Photoshop", 120, 5, 15, tiempoProcesoValue, "Cargado");
-                txtCiclos.Text = Photoshop.ciclos.ToString();
-
-            }
-            else if (comboBoxApps.SelectedIndex == 4)
-            {
-                VSCode = new Process("VSCode", 125, 6, 18, tiempoProcesoValue,  "Cargado");
-                txtCiclos.Text = VSCode.ciclos.ToString();
-            }
-            else if (comboBoxApps.SelectedIndex == 5)
-            {
-                Outlook = new Process("Outlook", 130, 7, 11, tiempoProcesoValue, "Cargado");
-                txtCiclos.Text = Outlook.ciclos.ToString();
-            }
-            else if (comboBoxApps.SelectedIndex == 6)
-            {
-                Ilustrator = new Process("Ilustrator", 140, 8, 12, tiempoProcesoValue,  "Cargado");
-                txtCiclos.Text = Ilustrator.ciclos.ToString();
-            }
-            else if (comboBoxApps.SelectedIndex == 7)
-            {
-                MySQL = new Process("MySQL", 150, 9, 14, tiempoProcesoValue, "Cargado");
-                txtCiclos.Text = MySQL.ciclos.ToString();
-            }
-
-            else if (comboBoxApps.SelectedIndex == 8)
-            {
-                Paint = new Process("Paint", 155, 10, 20, tiempoProcesoValue, "Cargado");
-                txtCiclos.Text = Paint.ciclos.ToString();
-            }
-            else if (comboBoxApps.SelectedIndex == 9)
-            {
-                Teams = new Process("Teams", 160, 11, 16, tiempoProcesoValue, "Cargado");
-                txtCiclos.Text = Teams.ciclos.ToString();
+                case 0:
+                    Chrome = new Process("Google Chrome", 100, 15, 10, tiempoProcesoValue, "Cargado");
+                    txtCiclos.Text = Chrome.ciclos.ToString();
+                    break;
+                case 1:
+                    Spotify = new Process("Spotify", 120, 25, 8, tiempoProcesoValue, "Cargado");
+                    txtCiclos.Text = Spotify.ciclos.ToString();
+                    break;
+                case 2:
+                    Word = new Process("Word", 115, 30, 12, tiempoProcesoValue, "Cargado");
+                    txtCiclos.Text = Word.ciclos.ToString();
+                    break;
+                case 3:
+                    Photoshop = new Process("Photoshop", 120, 5, 15, tiempoProcesoValue, "Cargado");
+                    txtCiclos.Text = Photoshop.ciclos.ToString();
+                    break;
+                case 4:
+                    VSCode = new Process("VSCode", 125, 6, 18, tiempoProcesoValue, "Cargado");
+                    txtCiclos.Text = VSCode.ciclos.ToString();
+                    break;
+                case 5:
+                    Outlook = new Process("Outlook", 130, 7, 11, tiempoProcesoValue, "Cargado");
+                    txtCiclos.Text = Outlook.ciclos.ToString();
+                    break;
+                case 6:
+                    Ilustrator = new Process("Ilustrator", 140, 8, 12, tiempoProcesoValue, "Cargado");
+                    txtCiclos.Text = Ilustrator.ciclos.ToString();
+                    break;
+                case 7:
+                    MySQL = new Process("MySQL", 150, 9, 14, tiempoProcesoValue, "Cargado");
+                    txtCiclos.Text = MySQL.ciclos.ToString();
+                    break;
+                case 8:
+                    Paint = new Process("Paint", 155, 10, 20, tiempoProcesoValue, "Cargado");
+                    txtCiclos.Text = Paint.ciclos.ToString();
+                    break;
+                case 9:
+                    Teams = new Process("Teams", 160, 11, 16, tiempoProcesoValue, "Cargado");
+                    txtCiclos.Text = Teams.ciclos.ToString();
+                    break;
+                default:
+                    break;
             }
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -342,16 +334,6 @@ namespace SimulatorOS
 
         private void agregar(Process proceso) // agrega los procesos
         {
-            if (Ram.hayEspacio(proceso)) // Comprueba que haya espacio disponible en la memoria Ram
-            {
-                Ram.push(proceso); // Agrega el proceso a la memoria Ram
-                agregarDataGrid(proceso); // Agrega el proceso al dataGrid
-
-            } else if (Virtual.hayEspacio(proceso)) // Comprueba que haya espacio disponible en la memoria Virtual
-            {
-                Virtual.push(proceso); // Agrega el proceso a la memoria Virtual
-                agregarDataGrid(proceso); // Agrega el proceso al dataGrid
-            }
 
         }
 
