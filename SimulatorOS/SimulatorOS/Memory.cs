@@ -39,20 +39,37 @@ namespace SimulatorOS
             return false;
         }
 
-        public int push(Process proceso) // Mete un proceso a la memoria
+        public void push(Process proceso) // Mete un proceso a la memoria
         {
             if (Total > 0)
             {
                 memory.Add(proceso);
-                return 1; // El proceso entro en la memoria
+                Total -= proceso.peso;
             }
-            return 0; // El proceso no pudo entrar en la memoria 
         }
 
-        public Process pull(Process proceso) // saca un proceso a la memoria
+        public Process pull(Process proceso) // saca un proceso a la memoria y lo retorna
         {
             int i = memory.FindIndex(a => a.Equals(proceso));
+            Total += proceso.peso;
             return memory.ElementAt(i);
+        }
+
+        public void delete(Process proceso) 
+        {
+            memory.Remove(proceso);
+        }
+
+        public bool buscarProcesoPorNombre(String proceso)
+        {
+            for (int i = 0; i < proceso.Length; i++)
+            {
+                if (memory[i].nombre == proceso)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
     }

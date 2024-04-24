@@ -34,6 +34,8 @@ namespace SimulatorOS
         private int secondsPassed = 0;
         private bool banderaGuardarSeg = false;
 
+        Handler ControladorDeMemorias = new Handler();
+
 
         //diccionario que almacena los segundos de los procesos
         Dictionary<int, int> segundosPorProceso = new Dictionary<int, int>();
@@ -271,8 +273,6 @@ namespace SimulatorOS
                 //muestro en pantalla
                 txtPromedioEspera.Text = promedioEspera.ToString();
                 txtPromedioRetorno.Text = promedioRetorno.ToString();
-
-
             }
         }
 
@@ -334,10 +334,24 @@ namespace SimulatorOS
 
         private void agregar(Process proceso) // agrega los procesos
         {
+            int AgregarEnRam = ControladorDeMemorias.AgregarAmemoria(proceso);
+            if (AgregarEnRam == 1)
+            {
+                AgregarDataGridRam(proceso);
+                agregarDataGridDeProcesos(proceso);
+            } else if (AgregarEnRam == 2)
+            {
+                AgregarDataGridVirtual(proceso);
+                agregarDataGridDeProcesos(proceso);
+            }
+            else
+            {
+                MessageBox.Show("Memorias Llenas!!!.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
 
         }
 
-        private void agregarDataGrid(Process proceso) // Carga el dataGrid con los datos del proceso
+        private void agregarDataGridDeProcesos(Process proceso) // Carga el dataGrid con los datos del proceso
         {
             int index = gridProcesos.Rows.Add();
 
@@ -346,6 +360,26 @@ namespace SimulatorOS
             gridProcesos.Rows[index].Cells["EstadoProceso"].Value = proceso.estado;
             gridProcesos.Rows[index].Cells["Ciclos"].Value = proceso.ciclos;
             gridProcesos.Rows[index].Cells["RestanteCiclo"].Value = proceso.ciclos;
+        }
+
+        private void AgregarDataGridRam(Process proceso)
+        {
+            int index = gridMemoriaRAM.Rows.Add();
+
+            gridMemoriaRAM.Rows[index].Cells["Nombre"].Value = proceso.nombre;
+            gridMemoriaRAM.Rows[index].Cells["Proceso"].Value = index;
+            gridMemoriaRAM.Rows[index].Cells["UsoRam"].Value = proceso.peso;
+            gridMemoriaRAM.Rows[index].Cells["ConsumoCPU"].Value = proceso.usoCpu;
+        }
+
+        private void AgregarDataGridVirtual(Process proceso)
+        {
+            int index = gridMemoriaVirtual.Rows.Add();
+
+            gridMemoriaVirtual.Rows[index].Cells["Nombre1"].Value = proceso.nombre;
+            gridMemoriaVirtual.Rows[index].Cells["Proceso1"].Value = index;
+            gridMemoriaVirtual.Rows[index].Cells["UsoRam1"].Value = proceso.peso;
+            gridMemoriaVirtual.Rows[index].Cells["ConsumoCPU1"].Value = proceso.usoCpu;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e) // boton agregar
@@ -416,6 +450,8 @@ namespace SimulatorOS
             {
                 // Elimina la fila seleccionada
                 gridProcesos.Rows.RemoveAt(gridProcesos.SelectedRows[0].Index);
+                string proceso = gridProcesos.SelectedRows[0].Cells["NumProceso"].Value.ToString();
+
             }
             else
             {

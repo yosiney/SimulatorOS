@@ -51,15 +51,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.gridMemoriaVirtual = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridMemoriaRAM = new System.Windows.Forms.DataGridView();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtPromedioRetorno = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -80,6 +72,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonIniciarSimulacion = new System.Windows.Forms.Button();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Proceso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsoRam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConsumoCPU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Proceso1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsoRam1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConsumoCPU1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loadingCircle)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -341,78 +341,30 @@
             this.gridMemoriaVirtual.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridMemoriaVirtual.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridMemoriaVirtual.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.Nombre1,
+            this.Proceso1,
+            this.UsoRam1,
+            this.ConsumoCPU1});
             this.gridMemoriaVirtual.Location = new System.Drawing.Point(527, 54);
             this.gridMemoriaVirtual.Name = "gridMemoriaVirtual";
             this.gridMemoriaVirtual.RowHeadersWidth = 51;
             this.gridMemoriaVirtual.Size = new System.Drawing.Size(486, 156);
             this.gridMemoriaVirtual.TabIndex = 22;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Proceso";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Uso RAM";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Consumo CPU";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
             // gridMemoriaRAM
             // 
             this.gridMemoriaRAM.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridMemoriaRAM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridMemoriaRAM.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column4,
-            this.Column1,
-            this.Column2,
-            this.Column3});
+            this.Nombre,
+            this.Proceso,
+            this.UsoRam,
+            this.ConsumoCPU});
             this.gridMemoriaRAM.Location = new System.Drawing.Point(25, 54);
             this.gridMemoriaRAM.Name = "gridMemoriaRAM";
             this.gridMemoriaRAM.RowHeadersWidth = 51;
             this.gridMemoriaRAM.Size = new System.Drawing.Size(447, 156);
             this.gridMemoriaRAM.TabIndex = 21;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Nombre";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Proceso";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Uso RAM";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Consumo CPU";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
             // 
             // panel2
             // 
@@ -627,6 +579,54 @@
             this.buttonIniciarSimulacion.UseVisualStyleBackColor = true;
             this.buttonIniciarSimulacion.Click += new System.EventHandler(this.buttonIniciarSimulacion_Click);
             // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.MinimumWidth = 6;
+            this.Nombre.Name = "Nombre";
+            // 
+            // Proceso
+            // 
+            this.Proceso.HeaderText = "Proceso";
+            this.Proceso.MinimumWidth = 6;
+            this.Proceso.Name = "Proceso";
+            // 
+            // UsoRam
+            // 
+            this.UsoRam.HeaderText = "Uso RAM";
+            this.UsoRam.MinimumWidth = 6;
+            this.UsoRam.Name = "UsoRam";
+            // 
+            // ConsumoCPU
+            // 
+            this.ConsumoCPU.HeaderText = "Consumo CPU";
+            this.ConsumoCPU.MinimumWidth = 6;
+            this.ConsumoCPU.Name = "ConsumoCPU";
+            // 
+            // Nombre1
+            // 
+            this.Nombre1.HeaderText = "Nombre";
+            this.Nombre1.MinimumWidth = 6;
+            this.Nombre1.Name = "Nombre1";
+            // 
+            // Proceso1
+            // 
+            this.Proceso1.HeaderText = "Proceso";
+            this.Proceso1.MinimumWidth = 6;
+            this.Proceso1.Name = "Proceso1";
+            // 
+            // UsoRam1
+            // 
+            this.UsoRam1.HeaderText = "Uso RAM";
+            this.UsoRam1.MinimumWidth = 6;
+            this.UsoRam1.Name = "UsoRam1";
+            // 
+            // ConsumoCPU1
+            // 
+            this.ConsumoCPU1.HeaderText = "Consumo CPU";
+            this.ConsumoCPU1.MinimumWidth = 6;
+            this.ConsumoCPU1.Name = "ConsumoCPU1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -678,15 +678,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.DataGridView gridMemoriaVirtual;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridView gridMemoriaRAM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtPromedioRetorno;
         private System.Windows.Forms.Label label11;
@@ -710,6 +702,14 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox loadingCircle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Proceso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsoRam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ConsumoCPU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Proceso1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsoRam1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ConsumoCPU1;
     }
 }
 

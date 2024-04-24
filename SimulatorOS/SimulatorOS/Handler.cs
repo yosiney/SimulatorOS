@@ -21,19 +21,31 @@ namespace SimulatorOS
         private int VirutalDisponible = 0;
         public int virtualDisponible => VirutalDisponible; // geter 
 
-        public void AgregarAmemoria(Process proceso)
+        public int AgregarAmemoria(Process proceso)
         {
-            comprobarMemorias();
-            if (RamDisponible != 0 &&  proceso.peso < RamDisponible )
+            actualizarMemorias();
+            if (RamDisponible != 0 && proceso.peso <= RamDisponible)
             {
-                Ram.push( proceso );
-            } else if (VirutalDisponible != 0 && proceso.peso < VirutalDisponible)
+                Ram.push(proceso);
+                return 1; // El proceso entro en la memoria RAM
+            }
+            else if (VirutalDisponible != 0 && proceso.peso <= VirutalDisponible)
             {
-                Virtual.push( proceso );
+                Virtual.push(proceso);
+                return 2; // El proceso entro en la memoria Virutal
+            }
+            return 0; // Memorias Llenas
+        }
+
+        private void buscarProceso(String proceso)
+        {
+           if (Ram.seEncontroElProceso(proceso))
+            {
+
             }
         }
 
-        private void comprobarMemorias() // actualiza valor de ramDisponible y virtualDisponible
+        private void actualizarMemorias() // actualiza valor de ramDisponible y virtualDisponible
         {
             RamDisponible = Ram.total;
             VirutalDisponible = Virtual.total;
