@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -26,6 +27,8 @@ namespace SimulatorOS
         Process Paint;
         Process Teams;
 
+        Handler ControladorDeMemorias = new Handler();
+
         int tiempoProcesoValue;
 
         private Timer timer;
@@ -33,9 +36,6 @@ namespace SimulatorOS
 
         private int secondsPassed = 0;
         private bool banderaGuardarSeg = false;
-
-        Handler ControladorDeMemorias = new Handler();
-
 
         //diccionario que almacena los segundos de los procesos
         Dictionary<int, int> segundosPorProceso = new Dictionary<int, int>();
@@ -67,12 +67,27 @@ namespace SimulatorOS
             int restanteVar = Convert.ToInt32(gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value);
             DataGridViewRow filaSeleccionada = gridProcesos.CurrentRow;
 
-            // int tiempo = int.Parse(filaSeleccionada.Cells["RestanteCiclo"].Value.ToString());
+            //int tiempo = int.Parse(filaSeleccionada.Cells["RestanteCiclo"].Value.ToString());
 
             //si el indice tiene ciclos restantes entrara al if
             if (restanteVar != 0)
             {
                 gridProcesos.Rows[indexFila].Cells["EstadoProceso"].Value = "Ejecutando";
+
+                string nombreDelProceso = gridProcesos.Rows[indexFila].Cells["NumProceso"].Value.ToString();
+
+                bool? Switch = ControladorDeMemorias.Swapt(nombreDelProceso);
+
+                if(Switch == true)
+                {
+                    EliminarProcesoDeTablaVirtual(ControladorDeMemorias.temp1.nombre);
+                    EliminarProcesoDeTablaRam(ControladorDeMemorias.temp2.nombre);
+
+                    AgregarDataGridRam(ControladorDeMemorias.temp1);
+                    AgregarDataGridVirtual(ControladorDeMemorias.temp2);
+
+                }
+
 
                 // Registrar el tiempo en el momento en que el proceso comienza a ejecutarse
                 if (banderaGuardarSeg == false)
@@ -460,24 +475,10 @@ namespace SimulatorOS
                 // busca la fila del proceso para borrarla
                 if (borraDeLaRam == true)
                 {
-                    for (int v = 0; v < gridMemoriaRAM.Rows.Count; v++)
-                    {
-                        if (string.Equals(gridMemoriaRAM[0, v].Value as string, proceso))
-                        {
-                            gridMemoriaRAM.Rows.RemoveAt(v);
-                            v--; // this just got messy. But you see my point.
-                        }
-                    }
+                    EliminarProcesoDeTablaRam(proceso);
                 } else
                 {
-                    for (int v = 0; v < gridMemoriaVirtual.Rows.Count; v++)
-                    {
-                        if (string.Equals(gridMemoriaVirtual[0, v].Value as string, proceso))
-                        {
-                            gridMemoriaVirtual.Rows.RemoveAt(v);
-                            v--; // this just got messy. But you see my point.
-                        }
-                    }
+                    EliminarProcesoDeTablaVirtual(proceso);
                 }
 
                 gridProcesos.Rows.RemoveAt(index);
@@ -486,7 +487,33 @@ namespace SimulatorOS
             {
                 MessageBox.Show("Por favor, seleccione una fila para eliminar.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
         }
+
+        private void EliminarProcesoDeTablaRam(String proceso) // Busca el proceso en el dataGrid y lo borra
+        {
+            for (int v = 0; v < gridMemoriaRAM.Rows.Count; v++)
+            {
+                if (string.Equals(gridMemoriaRAM[0, v].Value as string, proceso))
+                {
+                    gridMemoriaRAM.Rows.RemoveAt(v);
+                    v--; // this just got messy. But you see my point.
+                }
+            }
+        }
+
+        public void EliminarProcesoDeTablaVirtual(String proceso) // Busca el proceso en el dataGrid y lo borra
+        {
+            for (int v = 0; v < gridMemoriaVirtual.Rows.Count; v++)
+            {
+                if (string.Equals(gridMemoriaVirtual[0, v].Value as string, proceso))
+                {
+                    gridMemoriaVirtual.Rows.RemoveAt(v);
+                    v--; // this just got messy. But you see my point.
+                }
+            }
+        }
+
     }
 
 }

@@ -10,7 +10,7 @@ namespace SimulatorOS
 {
     internal class Process
     {
-        // variables
+        // Atributos
         private string Nombre;
         private int Peso;
         private int UsoCPU;

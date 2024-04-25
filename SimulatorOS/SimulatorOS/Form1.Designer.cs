@@ -105,7 +105,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(389, 226);
+            this.groupBox1.Size = new System.Drawing.Size(389, 295);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar procesos";
@@ -113,7 +113,7 @@
             // loadingCircle
             // 
             this.loadingCircle.Image = global::SimulatorOS.Properties.Resources.loading;
-            this.loadingCircle.Location = new System.Drawing.Point(20, 115);
+            this.loadingCircle.Location = new System.Drawing.Point(20, 164);
             this.loadingCircle.Name = "loadingCircle";
             this.loadingCircle.Size = new System.Drawing.Size(104, 92);
             this.loadingCircle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -123,7 +123,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(258, 164);
+            this.button1.Location = new System.Drawing.Point(258, 192);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 28);
             this.button1.TabIndex = 25;
@@ -163,7 +163,7 @@
             // 
             // buttonAgregar
             // 
-            this.buttonAgregar.Location = new System.Drawing.Point(149, 164);
+            this.buttonAgregar.Location = new System.Drawing.Point(165, 192);
             this.buttonAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAgregar.Name = "buttonAgregar";
             this.buttonAgregar.Size = new System.Drawing.Size(88, 28);
@@ -211,7 +211,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(644, 230);
+            this.groupBox2.Size = new System.Drawing.Size(644, 299);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Procesos";
@@ -247,7 +247,7 @@
             this.gridProcesos.RowHeadersWidth = 51;
             this.gridProcesos.RowTemplate.Height = 24;
             this.gridProcesos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridProcesos.Size = new System.Drawing.Size(624, 153);
+            this.gridProcesos.Size = new System.Drawing.Size(624, 239);
             this.gridProcesos.TabIndex = 0;
             // 
             // NumProceso
@@ -308,11 +308,11 @@
             this.groupBox3.Controls.Add(this.panel2);
             this.groupBox3.Controls.Add(this.panel1);
             this.groupBox3.Controls.Add(this.buttonIniciarSimulacion);
-            this.groupBox3.Location = new System.Drawing.Point(9, 244);
+            this.groupBox3.Location = new System.Drawing.Point(9, 313);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(1037, 485);
+            this.groupBox3.Size = new System.Drawing.Size(1037, 416);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Simulacion:";
@@ -361,24 +361,28 @@
             this.Nombre1.HeaderText = "Nombre";
             this.Nombre1.MinimumWidth = 6;
             this.Nombre1.Name = "Nombre1";
+            this.Nombre1.ReadOnly = true;
             // 
             // Proceso1
             // 
             this.Proceso1.HeaderText = "Proceso";
             this.Proceso1.MinimumWidth = 6;
             this.Proceso1.Name = "Proceso1";
+            this.Proceso1.ReadOnly = true;
             // 
             // UsoRam1
             // 
             this.UsoRam1.HeaderText = "Uso RAM";
             this.UsoRam1.MinimumWidth = 6;
             this.UsoRam1.Name = "UsoRam1";
+            this.UsoRam1.ReadOnly = true;
             // 
             // ConsumoCPU1
             // 
             this.ConsumoCPU1.HeaderText = "Consumo CPU";
             this.ConsumoCPU1.MinimumWidth = 6;
             this.ConsumoCPU1.Name = "ConsumoCPU1";
+            this.ConsumoCPU1.ReadOnly = true;
             // 
             // gridMemoriaRAM
             // 
@@ -437,7 +441,7 @@
             this.panel2.Location = new System.Drawing.Point(527, 232);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(486, 139);
+            this.panel2.Size = new System.Drawing.Size(486, 116);
             this.panel2.TabIndex = 20;
             // 
             // txtPromedioRetorno
@@ -526,7 +530,7 @@
             this.panel1.Location = new System.Drawing.Point(20, 232);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(447, 139);
+            this.panel1.Size = new System.Drawing.Size(447, 116);
             this.panel1.TabIndex = 19;
             // 
             // textBox5
@@ -629,7 +633,7 @@
             // 
             // buttonIniciarSimulacion
             // 
-            this.buttonIniciarSimulacion.Location = new System.Drawing.Point(402, 408);
+            this.buttonIniciarSimulacion.Location = new System.Drawing.Point(402, 365);
             this.buttonIniciarSimulacion.Margin = new System.Windows.Forms.Padding(2);
             this.buttonIniciarSimulacion.Name = "buttonIniciarSimulacion";
             this.buttonIniciarSimulacion.Size = new System.Drawing.Size(190, 45);

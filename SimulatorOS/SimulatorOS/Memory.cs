@@ -61,13 +61,19 @@ namespace SimulatorOS
             return memory.ElementAt(i);
         }
 
-        public void delete(Process proceso) 
+        public Process last() // retorna el ultimo proceso de la memoria
+        {
+            Process last = memory.Last();
+            return last;
+        }
+
+        public void delete(Process proceso) // Elimina proceso de la memoria
         {
             Total += proceso.peso;
             memory.Remove(proceso);
         }
 
-        public bool existeProcesoPorNombre(String proceso) // busca el nombre
+        public bool existeProcesoPorNombre(String proceso) // Comprueba si el proceso esta en la memoria
         {
             try
             {
@@ -85,7 +91,7 @@ namespace SimulatorOS
             }
         }
 
-        public Process buscarProcesoPorNombre(String proceso)
+        public Process buscarProcesoPorNombre(String proceso) // Busca el proceso y lo retorna
         {
             for (int i = 0; i < proceso.Length; i++)
             {
