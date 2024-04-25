@@ -448,10 +448,39 @@ namespace SimulatorOS
             // Verifica si hay una fila seleccionada
             if (gridProcesos.SelectedRows.Count > 0)
             {
-                // Elimina la fila seleccionada
-                gridProcesos.Rows.RemoveAt(gridProcesos.SelectedRows[0].Index);
+                // Nombre de la fila seleccionada
                 string proceso = gridProcesos.SelectedRows[0].Cells["NumProceso"].Value.ToString();
 
+                // Llama al Handler para eliminar el proceso de la memoria
+                bool? borraDeLaRam = ControladorDeMemorias.EliminarProceso(proceso);
+
+                // Guarda el index de la fila seleccionada
+                int index = gridProcesos.SelectedRows[0].Index;
+
+                // busca la fila del proceso para borrarla
+                if (borraDeLaRam == true)
+                {
+                    for (int v = 0; v < gridMemoriaRAM.Rows.Count; v++)
+                    {
+                        if (string.Equals(gridMemoriaRAM[0, v].Value as string, proceso))
+                        {
+                            gridMemoriaRAM.Rows.RemoveAt(v);
+                            v--; // this just got messy. But you see my point.
+                        }
+                    }
+                } else
+                {
+                    for (int v = 0; v < gridMemoriaVirtual.Rows.Count; v++)
+                    {
+                        if (string.Equals(gridMemoriaVirtual[0, v].Value as string, proceso))
+                        {
+                            gridMemoriaVirtual.Rows.RemoveAt(v);
+                            v--; // this just got messy. But you see my point.
+                        }
+                    }
+                }
+
+                gridProcesos.Rows.RemoveAt(index);
             }
             else
             {

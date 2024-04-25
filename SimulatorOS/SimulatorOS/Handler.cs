@@ -21,6 +21,9 @@ namespace SimulatorOS
         private int VirutalDisponible = 0;
         public int virtualDisponible => VirutalDisponible; // geter 
 
+        private int ProcesosEnRam = 0; // Cantidad de procesos en Ram
+        public int procesosEnRam => ProcesosEnRam; // geter
+
         public int AgregarAmemoria(Process proceso)
         {
             actualizarMemorias();
@@ -37,18 +40,27 @@ namespace SimulatorOS
             return 0; // Memorias Llenas
         }
 
-        private void buscarProceso(String proceso)
+        public bool? EliminarProceso(String proceso)
         {
-           if (Ram.seEncontroElProceso(proceso))
+            if(Ram.existeProcesoPorNombre(proceso))
             {
-
+                Process temp = Ram.buscarProcesoPorNombre(proceso);
+                Ram.delete(temp);
+                return true;
+            } else if (Virtual.existeProcesoPorNombre(proceso))
+            {
+                Process temp = Virtual.buscarProcesoPorNombre(proceso);
+                Virtual.delete(temp);
+                return false;
             }
+            return null;
         }
 
         private void actualizarMemorias() // actualiza valor de ramDisponible y virtualDisponible
         {
             RamDisponible = Ram.total;
             VirutalDisponible = Virtual.total;
+            ProcesosEnRam = Ram.length();
         }
 
     }

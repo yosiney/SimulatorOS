@@ -39,6 +39,12 @@ namespace SimulatorOS
             return false;
         }
 
+        public int length()
+        {
+            int i = memory.Count;
+            return i;
+        }
+
         public void push(Process proceso) // Mete un proceso a la memoria
         {
             if (Total > 0)
@@ -57,20 +63,41 @@ namespace SimulatorOS
 
         public void delete(Process proceso) 
         {
+            Total += proceso.peso;
             memory.Remove(proceso);
         }
 
-        public bool buscarProcesoPorNombre(String proceso)
+        public bool existeProcesoPorNombre(String proceso) // busca el nombre
+        {
+            try
+            {
+                for (int i = 0; i < proceso.Length; i++)
+                {
+                    if (memory[i].nombre == proceso)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            } catch(Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public Process buscarProcesoPorNombre(String proceso)
         {
             for (int i = 0; i < proceso.Length; i++)
             {
                 if (memory[i].nombre == proceso)
                 {
-                    return true;
+                    return memory[i];
                 }
             }
-            return false;
+            return null;
         }
+
+        
 
     }
 }
