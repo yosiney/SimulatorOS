@@ -61,6 +61,13 @@ namespace SimulatorOS
             return memory.ElementAt(i);
         }
 
+        public Process pullPorIndex(int index)
+        {
+            Process proceso = memory.ElementAt(index);
+            //Total += proceso.peso;
+            return proceso;
+        }
+
         public Process last() // retorna el ultimo proceso de la memoria
         {
             Process last = memory.Last();
@@ -91,7 +98,7 @@ namespace SimulatorOS
             }
         }
 
-        public Process buscarProcesoPorNombre(String proceso) // Busca el proceso y lo retorna
+        public Process pullPorNombre(String proceso) // Busca el proceso y lo retorna
         {
             for (int i = 0; i < proceso.Length; i++)
             {

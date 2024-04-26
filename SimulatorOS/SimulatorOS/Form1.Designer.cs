@@ -189,7 +189,7 @@
             this.comboBoxApps.Location = new System.Drawing.Point(14, 88);
             this.comboBoxApps.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxApps.Name = "comboBoxApps";
-            this.comboBoxApps.Size = new System.Drawing.Size(158, 21);
+            this.comboBoxApps.Size = new System.Drawing.Size(180, 21);
             this.comboBoxApps.TabIndex = 1;
             this.comboBoxApps.SelectedIndexChanged += new System.EventHandler(this.comboBoxApps_SelectedIndexChanged);
             // 

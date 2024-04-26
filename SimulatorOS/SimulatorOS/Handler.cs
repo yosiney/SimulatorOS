@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -47,40 +48,62 @@ namespace SimulatorOS
         {
             if(Ram.existeProcesoPorNombre(proceso))
             {
-                Process temp = Ram.buscarProcesoPorNombre(proceso);
+                Process temp = Ram.pullPorNombre(proceso);
                 Ram.delete(temp);
                 return true;
             } else if (Virtual.existeProcesoPorNombre(proceso))
             {
-                Process temp = Virtual.buscarProcesoPorNombre(proceso);
+                Process temp = Virtual.pullPorNombre(proceso);
                 Virtual.delete(temp);
                 return false;
             }
             return null;
         }
 
-        public bool? Swapt(String proceso)
+        public bool Switch(String proceso)
         {
-            if (Ram.existeProcesoPorNombre(proceso))
-            {
-                return false;
-            } else if (Virtual.existeProcesoPorNombre(proceso))
+            if (Virtual.existeProcesoPorNombre(proceso))
             {
                 // Pop proceso de la memoria Virtual
-                temp1 = Virtual.buscarProcesoPorNombre(proceso);
+                temp1 = Virtual.pullPorNombre(proceso);
                 Virtual.delete(temp1);
 
                 // Pop ultimo proceso de la memoria virtual
                 temp2 = Ram.last();
-                Ram.delete(temp2);  
+                Ram.delete(temp2);
 
                 // switch de procesos
                 Ram.push(temp1);
                 Virtual.push(temp2);
                 return true;
             }
+            else
+            {
+                return false;
+            }
+        }
+
+        public ArrayList EndProcess(String proceso)
+        {
+            Process temp = Ram.pullPorNombre(proceso);
+            Ram.delete(temp);
+
+            for(int i = 0; i < Virtual.length(); i++)
+            {
+                Process a = Virtual.pullPorIndex(i);
+                ArrayList procesosMovidos = new ArrayList();
+                if (a.peso < Ram.total)
+                {
+                    Virtual.delete(a);
+                    Ram.push(a);
+                    procesosMovidos.Add(a);
+                }
+                return procesosMovidos;
+            }
             return null;
         }
+
+
 
         private void actualizarMemorias() // actualiza valor de ramDisponible y virtualDisponible
         {

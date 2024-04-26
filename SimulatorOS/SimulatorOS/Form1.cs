@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -74,20 +75,18 @@ namespace SimulatorOS
             {
                 gridProcesos.Rows[indexFila].Cells["EstadoProceso"].Value = "Ejecutando";
 
+                // ---- Realiza el switch del round robin ------
                 string nombreDelProceso = gridProcesos.Rows[indexFila].Cells["NumProceso"].Value.ToString();
-
-                bool? Switch = ControladorDeMemorias.Swapt(nombreDelProceso);
-
-                if(Switch == true)
+                bool Switch = ControladorDeMemorias.Switch(nombreDelProceso);
+                if(Switch)
                 {
                     EliminarProcesoDeTablaVirtual(ControladorDeMemorias.temp1.nombre);
                     EliminarProcesoDeTablaRam(ControladorDeMemorias.temp2.nombre);
 
                     AgregarDataGridRam(ControladorDeMemorias.temp1);
                     AgregarDataGridVirtual(ControladorDeMemorias.temp2);
-
                 }
-
+                // ----------------------------------
 
                 // Registrar el tiempo en el momento en que el proceso comienza a ejecutarse
                 if (banderaGuardarSeg == false)
@@ -201,6 +200,24 @@ namespace SimulatorOS
             {
                 restante = 0;
                 gridProcesos.Rows[indexFila].Cells["EstadoProceso"].Value = "Terminado";
+
+
+                // Elimina el proceso de la memoria
+                string nombreDelProceso = gridProcesos.Rows[indexFila].Cells["NumProceso"].Value.ToString();
+                ArrayList swap = ControladorDeMemorias.EndProcess(nombreDelProceso);
+                if (swap != null)
+                {
+                    if (swap.Count > 0)
+                    {
+                        foreach(Process temp in swap)
+                        {
+                            EliminarProcesoDeTablaVirtual(temp.nombre);
+                            AgregarDataGridRam(temp);
+                        }
+                    }
+                }
+                EliminarProcesoDeTablaRam(nombreDelProceso);
+
 
                 //almaceno el tiempo de retorno (su ultima ejecucion)
                 //si el indice no tiene registro se ingresa al diccionario
