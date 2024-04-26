@@ -19,26 +19,31 @@ namespace SimulatorOS
         public Process temp1;
         public Process temp2;
 
-        private int RamDisponible = 0;
+        private int RamDisponible = 500;
         public int ramDisponivle => RamDisponible; // geter
 
-        private int VirutalDisponible = 0;
+        private int VirutalDisponible = 500;
         public int virtualDisponible => VirutalDisponible; // geter 
 
         private int ProcesosEnRam = 0; // Cantidad de procesos en Ram
+
+        private int ConsumoCPU = 0;
+        public int consumoCPU => ConsumoCPU;
+
         public int procesosEnRam => ProcesosEnRam; // geter
 
         public int AgregarAmemoria(Process proceso)
         {
-            actualizarMemorias();
             if (RamDisponible != 0 && proceso.peso <= RamDisponible)
             {
                 Ram.push(proceso);
+                actualizarMemorias();
                 return 1; // El proceso entro en la memoria RAM
             }
             else if (VirutalDisponible != 0 && proceso.peso <= VirutalDisponible)
             {
                 Virtual.push(proceso);
+                actualizarMemorias();
                 return 2; // El proceso entro en la memoria Virutal
             }
             return 0; // Memorias Llenas
@@ -50,11 +55,13 @@ namespace SimulatorOS
             {
                 Process temp = Ram.pullPorNombre(proceso);
                 Ram.delete(temp);
+                actualizarMemorias();
                 return true;
             } else if (Virtual.existeProcesoPorNombre(proceso))
             {
                 Process temp = Virtual.pullPorNombre(proceso);
                 Virtual.delete(temp);
+                actualizarMemorias();
                 return false;
             }
             return null;
@@ -75,6 +82,7 @@ namespace SimulatorOS
                 // switch de procesos
                 Ram.push(temp1);
                 Virtual.push(temp2);
+                actualizarMemorias();
                 return true;
             }
             else
@@ -92,12 +100,13 @@ namespace SimulatorOS
             {
                 Process a = Virtual.pullPorIndex(i);
                 ArrayList procesosMovidos = new ArrayList();
-                if (a.peso < Ram.total)
+                if (a.peso <= Ram.total)
                 {
                     Virtual.delete(a);
                     Ram.push(a);
                     procesosMovidos.Add(a);
                 }
+                actualizarMemorias();
                 return procesosMovidos;
             }
             return null;
@@ -110,6 +119,7 @@ namespace SimulatorOS
             RamDisponible = Ram.total;
             VirutalDisponible = Virtual.total;
             ProcesosEnRam = Ram.length();
+
         }
 
     }

@@ -62,9 +62,10 @@ namespace SimulatorOS
 
         private void Timer_Tick1s(object sender, EventArgs e)
         {
+            actualizarTxts();
+
             // Incrementar el contador de segundos
             secondsPassed++;
-
             int restanteVar = Convert.ToInt32(gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value);
             DataGridViewRow filaSeleccionada = gridProcesos.CurrentRow;
 
@@ -367,6 +368,7 @@ namespace SimulatorOS
         private void agregar(Process proceso) // agrega los procesos
         {
             int AgregarEnRam = ControladorDeMemorias.AgregarAmemoria(proceso);
+            actualizarTxts();
             if (AgregarEnRam == 1)
             {
                 AgregarDataGridRam(proceso);
@@ -529,6 +531,13 @@ namespace SimulatorOS
                     v--; // this just got messy. But you see my point.
                 }
             }
+        }
+
+        private void actualizarTxts()
+        {
+            txtRamDisponible.Text = ControladorDeMemorias.ramDisponivle.ToString();
+            txtConsumoCPU.Text = ControladorDeMemorias.consumoCPU.ToString();
+            txtMemoriaVirtual.Text = ControladorDeMemorias.virtualDisponible.ToString();
         }
 
     }

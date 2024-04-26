@@ -69,9 +69,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtMemoriaVirtual = new System.Windows.Forms.TextBox();
+            this.txtConsumoCPU = new System.Windows.Forms.TextBox();
+            this.txtRamDisponible = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -517,9 +517,9 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.txtMemoriaVirtual);
+            this.panel1.Controls.Add(this.txtConsumoCPU);
+            this.panel1.Controls.Add(this.txtRamDisponible);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label14);
@@ -533,29 +533,29 @@
             this.panel1.Size = new System.Drawing.Size(447, 116);
             this.panel1.TabIndex = 19;
             // 
-            // textBox5
+            // txtMemoriaVirtual
             // 
-            this.textBox5.Location = new System.Drawing.Point(266, 86);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(63, 20);
-            this.textBox5.TabIndex = 15;
+            this.txtMemoriaVirtual.Location = new System.Drawing.Point(266, 86);
+            this.txtMemoriaVirtual.Name = "txtMemoriaVirtual";
+            this.txtMemoriaVirtual.ReadOnly = true;
+            this.txtMemoriaVirtual.Size = new System.Drawing.Size(63, 20);
+            this.txtMemoriaVirtual.TabIndex = 15;
             // 
-            // textBox4
+            // txtConsumoCPU
             // 
-            this.textBox4.Location = new System.Drawing.Point(266, 50);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(63, 20);
-            this.textBox4.TabIndex = 14;
+            this.txtConsumoCPU.Location = new System.Drawing.Point(266, 50);
+            this.txtConsumoCPU.Name = "txtConsumoCPU";
+            this.txtConsumoCPU.ReadOnly = true;
+            this.txtConsumoCPU.Size = new System.Drawing.Size(63, 20);
+            this.txtConsumoCPU.TabIndex = 14;
             // 
-            // textBox3
+            // txtRamDisponible
             // 
-            this.textBox3.Location = new System.Drawing.Point(268, 13);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(63, 20);
-            this.textBox3.TabIndex = 13;
+            this.txtRamDisponible.Location = new System.Drawing.Point(268, 13);
+            this.txtRamDisponible.Name = "txtRamDisponible";
+            this.txtRamDisponible.ReadOnly = true;
+            this.txtRamDisponible.Size = new System.Drawing.Size(63, 20);
+            this.txtRamDisponible.TabIndex = 13;
             // 
             // label16
             // 
@@ -703,9 +703,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtMemoriaVirtual;
+        private System.Windows.Forms.TextBox txtConsumoCPU;
+        private System.Windows.Forms.TextBox txtRamDisponible;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
