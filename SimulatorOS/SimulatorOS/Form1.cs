@@ -63,7 +63,6 @@ namespace SimulatorOS
         private void Timer_Tick1s(object sender, EventArgs e)
         {
             actualizarTxts();
-
             // Incrementar el contador de segundos
             secondsPassed++;
             int restanteVar = Convert.ToInt32(gridProcesos.Rows[indexFila].Cells["RestanteCiclo"].Value);
@@ -76,10 +75,12 @@ namespace SimulatorOS
             {
                 gridProcesos.Rows[indexFila].Cells["EstadoProceso"].Value = "Ejecutando";
 
+                gridProcesos.Rows[indexFila].Selected = true;
+
                 // ---- Realiza el switch del round robin ------
                 string nombreDelProceso = gridProcesos.Rows[indexFila].Cells["NumProceso"].Value.ToString();
                 bool Switch = ControladorDeMemorias.Switch(nombreDelProceso);
-                if(Switch)
+                if (Switch)
                 {
                     EliminarProcesoDeTablaVirtual(ControladorDeMemorias.temp1.nombre);
                     EliminarProcesoDeTablaRam(ControladorDeMemorias.temp2.nombre);
@@ -201,23 +202,23 @@ namespace SimulatorOS
             {
                 restante = 0;
                 gridProcesos.Rows[indexFila].Cells["EstadoProceso"].Value = "Terminado";
-
+                gridProcesos.Rows[indexFila].Selected = false;
 
                 // Elimina el proceso de la memoria
                 string nombreDelProceso = gridProcesos.Rows[indexFila].Cells["NumProceso"].Value.ToString();
-                ArrayList swap = ControladorDeMemorias.EndProcess(nombreDelProceso);
-                if (swap != null)
+                ControladorDeMemorias.EndProcess(nombreDelProceso);
+                EliminarProcesoDeTablaRam(nombreDelProceso);
+
+                // Verifica si hay procesos de la memoria virtual que se puedan mover a la Ram
+                ArrayList swap = ControladorDeMemorias.Swap();
+                if (swap.Count > 0)
                 {
-                    if (swap.Count > 0)
+                    foreach (Process temp in swap)
                     {
-                        foreach(Process temp in swap)
-                        {
-                            EliminarProcesoDeTablaVirtual(temp.nombre);
-                            AgregarDataGridRam(temp);
-                        }
+                        EliminarProcesoDeTablaVirtual(temp.nombre);
+                        AgregarDataGridRam(temp);
                     }
                 }
-                EliminarProcesoDeTablaRam(nombreDelProceso);
 
 
                 //almaceno el tiempo de retorno (su ultima ejecucion)
@@ -231,6 +232,7 @@ namespace SimulatorOS
             else
             {
                 gridProcesos.Rows[indexFila].Cells["EstadoProceso"].Value = "Espera";
+                gridProcesos.Rows[indexFila].Selected = false;
             }
 
 
@@ -279,6 +281,8 @@ namespace SimulatorOS
             // Detener el temporizador si todas las filas tienen el ciclo en 0
             if (allZero)
             {
+                actualizarTxts();
+
                 timer.Stop();
                 MessageBox.Show("Timer terminado");
                 indexFila = 0;
@@ -348,7 +352,7 @@ namespace SimulatorOS
                     txtCiclos.Text = MySQL.ciclos.ToString();
                     break;
                 case 8:
-                    Paint = new Process("Paint", 155, 10, 20, tiempoProcesoValue, "Cargado");
+                    Paint = new Process("Paint", 110, 10, 20, tiempoProcesoValue, "Cargado");
                     txtCiclos.Text = Paint.ciclos.ToString();
                     break;
                 case 9:
@@ -373,7 +377,8 @@ namespace SimulatorOS
             {
                 AgregarDataGridRam(proceso);
                 agregarDataGridDeProcesos(proceso);
-            } else if (AgregarEnRam == 2)
+            }
+            else if (AgregarEnRam == 2)
             {
                 AgregarDataGridVirtual(proceso);
                 agregarDataGridDeProcesos(proceso);
@@ -495,7 +500,8 @@ namespace SimulatorOS
                 if (borraDeLaRam == true)
                 {
                     EliminarProcesoDeTablaRam(proceso);
-                } else
+                }
+                else
                 {
                     EliminarProcesoDeTablaVirtual(proceso);
                 }

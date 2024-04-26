@@ -174,6 +174,7 @@
             // 
             // comboBoxApps
             // 
+            this.comboBoxApps.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxApps.FormattingEnabled = true;
             this.comboBoxApps.Items.AddRange(new object[] {
             "Google Chrome",
@@ -189,7 +190,7 @@
             this.comboBoxApps.Location = new System.Drawing.Point(14, 88);
             this.comboBoxApps.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxApps.Name = "comboBoxApps";
-            this.comboBoxApps.Size = new System.Drawing.Size(180, 21);
+            this.comboBoxApps.Size = new System.Drawing.Size(180, 28);
             this.comboBoxApps.TabIndex = 1;
             this.comboBoxApps.SelectedIndexChanged += new System.EventHandler(this.comboBoxApps_SelectedIndexChanged);
             // 

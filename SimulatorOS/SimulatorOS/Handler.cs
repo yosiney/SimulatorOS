@@ -51,13 +51,14 @@ namespace SimulatorOS
 
         public bool? EliminarProceso(String proceso)
         {
-            if(Ram.existeProcesoPorNombre(proceso))
+            if (Ram.existeProcesoPorNombre(proceso))
             {
                 Process temp = Ram.pullPorNombre(proceso);
                 Ram.delete(temp);
                 actualizarMemorias();
                 return true;
-            } else if (Virtual.existeProcesoPorNombre(proceso))
+            }
+            else if (Virtual.existeProcesoPorNombre(proceso))
             {
                 Process temp = Virtual.pullPorNombre(proceso);
                 Virtual.delete(temp);
@@ -85,31 +86,31 @@ namespace SimulatorOS
                 actualizarMemorias();
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
-        public ArrayList EndProcess(String proceso)
+        public void EndProcess(String proceso)
         {
             Process temp = Ram.pullPorNombre(proceso);
             Ram.delete(temp);
+            actualizarMemorias();
+        }
 
-            for(int i = 0; i < Virtual.length(); i++)
+        public ArrayList Swap()
+        {
+            ArrayList procesosMovidos = new ArrayList();
+            for (int i = 0; i < Virtual.length(); i++)
             {
                 Process a = Virtual.pullPorIndex(i);
-                ArrayList procesosMovidos = new ArrayList();
-                if (a.peso <= Ram.total)
+                if (a.peso < Ram.total)
                 {
                     Virtual.delete(a);
                     Ram.push(a);
                     procesosMovidos.Add(a);
                 }
-                actualizarMemorias();
-                return procesosMovidos;
             }
-            return null;
+            actualizarMemorias();
+            return procesosMovidos;
         }
 
 
@@ -122,5 +123,12 @@ namespace SimulatorOS
 
         }
 
+        public void actualizarMemorias2() // actualiza valor de ramDisponible y virtualDisponible
+        {
+            RamDisponible = Ram.total;
+            VirutalDisponible = Virtual.total;
+            ProcesosEnRam = Ram.length();
+
+        }
     }
 }
