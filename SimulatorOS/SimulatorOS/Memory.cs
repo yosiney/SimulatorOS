@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -108,6 +109,14 @@ namespace SimulatorOS
                 }
             }
             return null;
+        }
+
+        public void clearAll()
+        {
+            for (int i = 0; i < memory.Count; i++)
+            {
+                delete(memory[i]);
+            }
         }
 
         

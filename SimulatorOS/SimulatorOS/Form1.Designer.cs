@@ -80,6 +80,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonIniciarSimulacion = new System.Windows.Forms.Button();
+            this.btnReiniciar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loadingCircle)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -302,6 +303,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnReiniciar);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.gridMemoriaVirtual);
@@ -342,6 +344,7 @@
             // 
             // gridMemoriaVirtual
             // 
+            this.gridMemoriaVirtual.AllowUserToAddRows = false;
             this.gridMemoriaVirtual.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridMemoriaVirtual.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridMemoriaVirtual.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -387,6 +390,7 @@
             // 
             // gridMemoriaRAM
             // 
+            this.gridMemoriaRAM.AllowUserToAddRows = false;
             this.gridMemoriaRAM.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridMemoriaRAM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridMemoriaRAM.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -541,6 +545,7 @@
             this.txtMemoriaVirtual.ReadOnly = true;
             this.txtMemoriaVirtual.Size = new System.Drawing.Size(63, 20);
             this.txtMemoriaVirtual.TabIndex = 15;
+            this.txtMemoriaVirtual.Text = "500";
             // 
             // txtConsumoCPU
             // 
@@ -549,6 +554,7 @@
             this.txtConsumoCPU.ReadOnly = true;
             this.txtConsumoCPU.Size = new System.Drawing.Size(63, 20);
             this.txtConsumoCPU.TabIndex = 14;
+            this.txtConsumoCPU.Text = "0";
             // 
             // txtRamDisponible
             // 
@@ -557,6 +563,7 @@
             this.txtRamDisponible.ReadOnly = true;
             this.txtRamDisponible.Size = new System.Drawing.Size(63, 20);
             this.txtRamDisponible.TabIndex = 13;
+            this.txtRamDisponible.Text = "500";
             // 
             // label16
             // 
@@ -599,6 +606,7 @@
             this.textBoxProcesoEjecucion.ReadOnly = true;
             this.textBoxProcesoEjecucion.Size = new System.Drawing.Size(67, 20);
             this.textBoxProcesoEjecucion.TabIndex = 7;
+            this.textBoxProcesoEjecucion.Text = "0";
             // 
             // label7
             // 
@@ -634,14 +642,24 @@
             // 
             // buttonIniciarSimulacion
             // 
-            this.buttonIniciarSimulacion.Location = new System.Drawing.Point(402, 365);
+            this.buttonIniciarSimulacion.Location = new System.Drawing.Point(357, 367);
             this.buttonIniciarSimulacion.Margin = new System.Windows.Forms.Padding(2);
             this.buttonIniciarSimulacion.Name = "buttonIniciarSimulacion";
-            this.buttonIniciarSimulacion.Size = new System.Drawing.Size(190, 45);
+            this.buttonIniciarSimulacion.Size = new System.Drawing.Size(164, 45);
             this.buttonIniciarSimulacion.TabIndex = 18;
             this.buttonIniciarSimulacion.Text = "Iniciar";
             this.buttonIniciarSimulacion.UseVisualStyleBackColor = true;
             this.buttonIniciarSimulacion.Click += new System.EventHandler(this.buttonIniciarSimulacion_Click);
+            // 
+            // btnReiniciar
+            // 
+            this.btnReiniciar.Location = new System.Drawing.Point(540, 367);
+            this.btnReiniciar.Name = "btnReiniciar";
+            this.btnReiniciar.Size = new System.Drawing.Size(147, 45);
+            this.btnReiniciar.TabIndex = 25;
+            this.btnReiniciar.Text = "Reiniciar";
+            this.btnReiniciar.UseVisualStyleBackColor = true;
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
             // Form1
             // 
@@ -726,6 +744,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Proceso1;
         private System.Windows.Forms.DataGridViewTextBoxColumn UsoRam1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ConsumoCPU1;
+        private System.Windows.Forms.Button btnReiniciar;
     }
 }
 
