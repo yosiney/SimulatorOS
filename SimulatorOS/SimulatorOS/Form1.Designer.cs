@@ -48,6 +48,7 @@
             this.TiempoFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TiempoRetorno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnReiniciar = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.gridMemoriaVirtual = new System.Windows.Forms.DataGridView();
@@ -80,7 +81,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonIniciarSimulacion = new System.Windows.Forms.Button();
-            this.btnReiniciar = new System.Windows.Forms.Button();
+            this.chBoxModoRealista = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loadingCircle)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -303,6 +304,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.chBoxModoRealista);
             this.groupBox3.Controls.Add(this.btnReiniciar);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label17);
@@ -319,6 +321,16 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Simulacion:";
+            // 
+            // btnReiniciar
+            // 
+            this.btnReiniciar.Location = new System.Drawing.Point(540, 367);
+            this.btnReiniciar.Name = "btnReiniciar";
+            this.btnReiniciar.Size = new System.Drawing.Size(147, 45);
+            this.btnReiniciar.TabIndex = 25;
+            this.btnReiniciar.Text = "Reiniciar";
+            this.btnReiniciar.UseVisualStyleBackColor = true;
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
             // label18
             // 
@@ -651,15 +663,16 @@
             this.buttonIniciarSimulacion.UseVisualStyleBackColor = true;
             this.buttonIniciarSimulacion.Click += new System.EventHandler(this.buttonIniciarSimulacion_Click);
             // 
-            // btnReiniciar
+            // chBoxModoRealista
             // 
-            this.btnReiniciar.Location = new System.Drawing.Point(540, 367);
-            this.btnReiniciar.Name = "btnReiniciar";
-            this.btnReiniciar.Size = new System.Drawing.Size(147, 45);
-            this.btnReiniciar.TabIndex = 25;
-            this.btnReiniciar.Text = "Reiniciar";
-            this.btnReiniciar.UseVisualStyleBackColor = true;
-            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
+            this.chBoxModoRealista.AutoSize = true;
+            this.chBoxModoRealista.Location = new System.Drawing.Point(885, 382);
+            this.chBoxModoRealista.Name = "chBoxModoRealista";
+            this.chBoxModoRealista.Size = new System.Drawing.Size(94, 17);
+            this.chBoxModoRealista.TabIndex = 27;
+            this.chBoxModoRealista.Text = "Modo Realista";
+            this.chBoxModoRealista.UseVisualStyleBackColor = true;
+            this.chBoxModoRealista.CheckedChanged += new System.EventHandler(this.chBoxModoRealista_CheckedChanged);
             // 
             // Form1
             // 
@@ -745,6 +758,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UsoRam1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ConsumoCPU1;
         private System.Windows.Forms.Button btnReiniciar;
+        private System.Windows.Forms.CheckBox chBoxModoRealista;
     }
 }
 
