@@ -74,12 +74,18 @@ namespace SimulatorOS
             //si el indice tiene ciclos restantes entrara al if
             if (restanteVar != 0)
             {
+
                 gridProcesos.Rows[indexFila].Cells["EstadoProceso"].Value = "Ejecutando";
+
+                // Mostrar  gift de la rueda cargando 
+                loadingCircle.Visible = true;
+
+                gridProcesos.Rows[indexFila].Selected = true;
 
                 // ---- Realiza el switch del round robin ------
                 string nombreDelProceso = gridProcesos.Rows[indexFila].Cells["NumProceso"].Value.ToString();
                 bool Switch = ControladorDeMemorias.Switch(nombreDelProceso);
-                if(Switch)
+                if (Switch)
                 {
                     EliminarProcesoDeTablaVirtual(ControladorDeMemorias.temp1.nombre);
                     EliminarProcesoDeTablaRam(ControladorDeMemorias.temp2.nombre);
@@ -201,23 +207,23 @@ namespace SimulatorOS
             {
                 restante = 0;
                 gridProcesos.Rows[indexFila].Cells["EstadoProceso"].Value = "Terminado";
+                gridProcesos.Rows[indexFila].Selected = false;
 
-
-                // Elimina el proceso de la memoria
+                // Elimina el proceso de la memoria Ram
                 string nombreDelProceso = gridProcesos.Rows[indexFila].Cells["NumProceso"].Value.ToString();
-                ArrayList swap = ControladorDeMemorias.EndProcess(nombreDelProceso);
-                if (swap != null)
+                ControladorDeMemorias.EndProcess(nombreDelProceso);
+                EliminarProcesoDeTablaRam(nombreDelProceso);
+
+                // Verifica si hay procesos de la memoria virtual que se puedan mover a la Ram
+                ArrayList swap = ControladorDeMemorias.Swap();
+                if (swap.Count > 0)
                 {
-                    if (swap.Count > 0)
+                    foreach (Process temp in swap)
                     {
-                        foreach(Process temp in swap)
-                        {
-                            EliminarProcesoDeTablaVirtual(temp.nombre);
-                            AgregarDataGridRam(temp);
-                        }
+                        EliminarProcesoDeTablaVirtual(temp.nombre);
+                        AgregarDataGridRam(temp);
                     }
                 }
-                EliminarProcesoDeTablaRam(nombreDelProceso);
 
 
                 //almaceno el tiempo de retorno (su ultima ejecucion)
@@ -231,6 +237,7 @@ namespace SimulatorOS
             else
             {
                 gridProcesos.Rows[indexFila].Cells["EstadoProceso"].Value = "Espera";
+                gridProcesos.Rows[indexFila].Selected = false;
             }
 
 
@@ -279,8 +286,15 @@ namespace SimulatorOS
             // Detener el temporizador si todas las filas tienen el ciclo en 0
             if (allZero)
             {
+                actualizarTxts();
+
+                // Esconder  gift de la rueda cargando 
+                loadingCircle.Visible = false;
+
+                bloquearBotones(true);
+
                 timer.Stop();
-                MessageBox.Show("Timer terminado");
+                MessageBox.Show("Ejecucion terminada","Informacion",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 indexFila = 0;
 
                 int largoTabla = gridProcesos.Rows.Count;
@@ -348,7 +362,7 @@ namespace SimulatorOS
                     txtCiclos.Text = MySQL.ciclos.ToString();
                     break;
                 case 8:
-                    Paint = new Process("Paint", 155, 10, 20, tiempoProcesoValue, "Cargado");
+                    Paint = new Process("Paint", 110, 10, 20, tiempoProcesoValue, "Cargado");
                     txtCiclos.Text = Paint.ciclos.ToString();
                     break;
                 case 9:
@@ -373,7 +387,8 @@ namespace SimulatorOS
             {
                 AgregarDataGridRam(proceso);
                 agregarDataGridDeProcesos(proceso);
-            } else if (AgregarEnRam == 2)
+            }
+            else if (AgregarEnRam == 2)
             {
                 AgregarDataGridVirtual(proceso);
                 agregarDataGridDeProcesos(proceso);
@@ -422,34 +437,103 @@ namespace SimulatorOS
             switch (index)
             {
                 case 0:
-                    agregar(Chrome);
+                    if (!procesoYaExiste(Chrome))
+                    {
+                        agregar(Chrome);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Proceso ya esta en cola!!!.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     break;
                 case 1:
-                    agregar(Spotify);
+                    if (!procesoYaExiste(Spotify))
+                    {
+                        agregar(Spotify);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Proceso ya esta en cola!!!.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     break;
                 case 2:
-                    agregar(Word);
+                    if (!procesoYaExiste(Word))
+                    {
+                        agregar(Word);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Proceso ya esta en cola!!!.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     break;
                 case 3:
-                    agregar(Photoshop);
+                    if (!procesoYaExiste(Photoshop))
+                    {
+                        agregar(Photoshop);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Proceso ya esta en cola!!!.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     break;
                 case 4:
-                    agregar(VSCode);
+                    if (!procesoYaExiste(VSCode))
+                    {
+                        agregar(VSCode);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Proceso ya esta en cola!!!.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     break;
                 case 5:
-                    agregar(Outlook);
+                    if (!procesoYaExiste(Outlook))
+                    {
+                        agregar(Outlook);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Proceso ya esta en cola!!!.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     break;
                 case 6:
-                    agregar(Ilustrator);
+                    if (!procesoYaExiste(Ilustrator))
+                    {
+                        agregar(Ilustrator);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Proceso ya esta en cola!!!.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     break;
                 case 7:
-                    agregar(MySQL);
+                    if (!procesoYaExiste(MySQL))
+                    {
+                        agregar(MySQL);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Proceso ya esta en cola!!!.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     break;
                 case 8:
-                    agregar(Paint);
+                    if (!procesoYaExiste(Paint))
+                    {
+                        agregar(Paint);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Proceso ya esta en cola!!!.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     break;
                 case 9:
-                    agregar(Teams);
+                    if (!procesoYaExiste(Teams))
+                    {
+                        agregar(Teams);
+                    } else
+                    {
+                        MessageBox.Show("Proceso ya esta en cola!!!.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     break;
                 default:
                     break;
@@ -470,6 +554,7 @@ namespace SimulatorOS
             {
                 MessageBox.Show("Iniciando Procesos!!!.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 timer.Start();
+                bloquearBotones(false);
             }
             else
             {
@@ -495,7 +580,8 @@ namespace SimulatorOS
                 if (borraDeLaRam == true)
                 {
                     EliminarProcesoDeTablaRam(proceso);
-                } else
+                }
+                else
                 {
                     EliminarProcesoDeTablaVirtual(proceso);
                 }
@@ -533,13 +619,57 @@ namespace SimulatorOS
             }
         }
 
-        private void actualizarTxts()
+        private void actualizarTxts() // Actualiza la informacion de los texts de recursos
         {
             txtRamDisponible.Text = ControladorDeMemorias.ramDisponivle.ToString();
             txtConsumoCPU.Text = ControladorDeMemorias.consumoCPU.ToString();
             txtMemoriaVirtual.Text = ControladorDeMemorias.virtualDisponible.ToString();
+            txtConsumoCPU.Text = ControladorDeMemorias.consumoCPU.ToString();
+            textBoxProcesoEjecucion.Text = ControladorDeMemorias.procesosEjecutandose.ToString();
         }
 
+        private void bloquearBotones(bool control) // Bloque los botones
+        {
+            buttonAgregar.Enabled = control;
+            button1.Enabled = control;
+            btnReiniciar.Enabled = control;
+            buttonIniciarSimulacion.Enabled = false;
+        }
+
+        private void reiniciar()
+        {
+            gridProcesos.Rows.Clear();
+            gridProcesos.Refresh();
+            gridMemoriaRAM.Rows.Clear();
+            gridMemoriaRAM.Refresh();
+            gridMemoriaVirtual.Rows.Clear();
+            gridMemoriaVirtual.Refresh();
+
+            
+            ControladorDeMemorias.ResetAll();
+            actualizarTxts();
+            buttonIniciarSimulacion.Enabled = true;
+        }
+
+        private void btnReiniciar_Click(object sender, EventArgs e)
+        {
+            reiniciar();
+            txtPromedioEspera.Text = "";
+            txtPromedioRetorno.Text = "";
+        }
+
+        private bool procesoYaExiste(Process proceso)
+        {
+            for (int i = 0; i < gridProcesos.RowCount; i++)
+            {
+                string nombreDelProceso = gridProcesos.Rows[i].Cells["NumProceso"].Value.ToString();
+                if (proceso.nombre == nombreDelProceso)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
 }
