@@ -670,6 +670,21 @@ namespace SimulatorOS
             }
             return false;
         }
+
+        private void rdModoRalista_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void chBoxModoRealista_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chBoxModoRealista.Checked == true)
+            {
+                hardwareReserve.activar();
+            } else if (chBoxModoRealista.Checked == false)
+            {
+                hardwareReserve.desactivar();
+            }
+        }
     }
 
 }
